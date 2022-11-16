@@ -1,0 +1,759 @@
+#!name=HUANG
+#!desc=HUANG的自用插件
+#!author=HUANG
+#!homepage=https://github.com/huang1179/Quan/tree/X/Loon
+#!icon=https://raw.githubusercontent.com/huang1179/Quan/X/Loon/plugin/HUANG.png
+
+
+#以下general来源https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/plugin/General.plugin
+#增补跳过代理部分段内容，增补返回真实IP段内容
+[General]
+# > 跳过代理
+# 跳过某个域名或者 IP 段，这些目标主机将不会由 Surge Proxy 处理。
+# (macOS 版本中，如果启用了 Set as System Proxy, 这些值会被写入到系统网络代理设置.)
+skip-proxy = localhost, *.local, passenger.t3go.cn, e.crashlytics.com, captive.apple.com, seed-sequoia.siri.apple.com, sequoia.apple.com, app.yinxiang.com, injections.adguard.org, local.adguard.org, cable.auth.com, *.id.ui.direct, www.baidu.com, yunbusiness.ccb.com, wxh.wo.cn, gate.lagou.com, www.abchina.com.cn, mbank.psbc.com, ibfp.psbc.com, 10.0.0.0/8, 100.64.0.0/10, 127.0.0.1/32, 169.254.0.0/16, 172.16.0.0/12, 192.168.0.0/16, 192.168.122.1/32, 193.168.0.1/32, 224.0.0.0/4, 240.0.0.0/4, 255.255.255.255/32, ::1/128, fc00::/7, fd00::/8, fe80::/10, ff00::/8, 2001::/32, 2001:db8::/32, 2002::/16, ::ffff:0:0:0:0/1, ::ffff:128:0:0:0/1
+
+# > Always Real IP Hosts
+# 当 Surge VIF 处理 DNS 问题时，此选项要求 Surge 返回一个真正的 IP 地址，而不是一个假 IP 地址。
+# DNS 数据包将被转发到上游 DNS 服务器。
+always-real-ip = *.lan, cable.auth.com, *.msftconnecttest.com, *.msftncsi.com, network-test.debian.org, detectportal.firefox.com, resolver1.opendns.com, *.srv.nintendo.net, *.stun.playstation.net, xbox.*.microsoft.com, *.xboxlive.com, stun.*, global.turn.twilio.com, global.stun.twilio.com, localhost.*.qq.com, *.logon.battlenet.com.cn, *.logon.battle.net, *.blzstatic.cn, music.163.com, *.music.163.com, *.126.net, musicapi.taihe.com, music.taihe.com, songsearch.kugou.com, trackercdn.kugou.com, *.kuwo.cn, api-jooxtt.sanook.com, api.joox.com, joox.com, y.qq.com, *.y.qq.com, streamoc.music.tc.qq.com, mobileoc.music.tc.qq.com, isure.stream.qqmusic.qq.com, dl.stream.qqmusic.qq.com, aqqmusic.tc.qq.com, amobile.music.tc.qq.com, *.xiami.com, *.music.migu.cn, music.migu.cn, proxy.golang.org, *.mcdn.bilivideo.cn, *.cmpassport.com, id6.me, open.e.189.cn, mdn.open.wo.cn, opencloud.wostore.cn, auth.wosms.cn, *.jegotrip.com.cn, *.icitymobile.mobi, *.pingan.com.cn, *.cmbchina.com, pool.ntp.org, *.pool.ntp.org, ntp.*.com, time.*.com, ntp?.*.com, time?.*.com, time.*.gov, time.*.edu.cn, *.ntp.org.cn, PDC._msDCS.*.*, DC._msDCS.*.*, GC._msDCS.*.*
+
+
+
+
+#以下host来源https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/plugin/DNS.plugin
+#按企业/公司分流使用所属DNS进行解析，路由器地址使用系统DNS进行解析
+[Host]
+# > Modify Contents
+# Firebase Cloud Messaging
+talk.google.com = 108.177.125.188
+mtalk.google.com = 108.177.125.188
+alt1-mtalk.google.com = 3.3.3.3
+alt2-mtalk.google.com = 3.3.3.3
+alt3-mtalk.google.com = 74.125.200.188
+alt4-mtalk.google.com = 74.125.200.188
+alt5-mtalk.google.com = 3.3.3.3
+alt6-mtalk.google.com = 3.3.3.3
+alt7-mtalk.google.com = 74.125.200.188
+alt8-mtalk.google.com = 3.3.3.3
+# Google CDN
+blog.google = server:119.29.29.29
+googletraveladservices.com = server:119.29.29.29
+dl.google.com = server:119.29.29.29
+dl.l.google.com = server:119.29.29.29
+clientservices.googleapis.com = server:119.29.29.29
+update.googleapis.com = server:119.29.29.29
+translate.googleapis.com = server:119.29.29.29
+fonts.googleapis.com = server:119.29.29.29
+fonts.gstatic.com = server:119.29.29.29
+
+# > Router Admin Panel
+# Ubiquiti Unifi Network App
+*.id.ui.direct = server:system
+# Ubiquiti Unifi Portal
+# unifi.ui.com = server:system
+# Ubiquiti Unifi OS
+unifi.local = server:system
+# Ubiquiti Unifi Controller
+# network.unifi.ui.com = server:system
+# Ubiquiti Amplifi Router
+amplifi.lan = server:system
+# Synology Router
+router.synology.com = server:system
+# Razer Sila Router
+sila.razer.com = server:system
+# Asus Router
+router.asus.com = server:system
+# Netgear Router
+routerlogin.net = server:system
+# Netgear Obri Router
+orbilogin.com = server:system
+# Linksys Router
+www.LinksysSmartWiFi.com = server:system
+LinksysSmartWiFi.com = server:system
+myrouter.local = server:system
+# Aurba Router
+instant.arubanetworks.com = server:syslib
+setmeup.arubanetworks.com = server:syslib
+# 小米 Mi WiFi Router
+www.miwifi.com = server:system
+miwifi.com = server:system
+# 华为 Huawei Router
+mediarouter.home = server:system
+# TP-Link Router
+tplogin.cn = server:system
+tplinklogin.net = server:system
+tplinkwifi.net = server:syslib
+# 水星 MERCURY Router
+melogin.cn = server:system
+# 迅捷 FAST Router
+falogin.cn = server:system
+# 腾达 Tenda Router
+tendawifi.com = server:syslib
+# 磊科 Netcore Router
+leike.cc = server:syslib
+# 中兴 ZTE Router
+zte.home = server:syslib
+# 斐讯 PHICOMM Router
+p.to = server:syslib
+phicomm.me = server:syslib
+# 极路由 HiWiFi Router
+hiwifi.com = server:syslib
+# 迅雷路由
+peiluyou.com = server:syslib
+
+# > Apple
+networking.apple = server:https://doh.dns.apple.com/dns-query
+# Apple.com
+# *.apple.com = server:https://doh.dns.apple.com/dns-query
+# iCloud.com
+*.icloud.com = server:https://doh.dns.apple.com/dns-query
+
+# > Alphabet
+*.google = server:https://dns.google/dns-query
+*.google.com = server:https://dns.google/dns-query
+*.google.com.?? = server:https://dns.google/dns-query
+# Google sites
+# *.goog = server:https://dns.google/dns-query
+# Google 静态资源
+*.gstatic.com = server:https://dns.google/dns-query
+# Google Photos
+*.ggpht.com = server:https://dns.google/dns-query
+# Google 用户上传数据
+*.googleusercontent.com = server:https://dns.google/dns-query
+# Google APIs
+*.googleapis.com = server:https://dns.google/dns-query
+# Google backbone
+*.1e100.net = server:https://dns.google/dns-query
+# Youtube sites
+*.youtube = server:https://dns.google/dns-query
+# Youtube
+*.youtube.com = server:https://dns.google/dns-query
+# Youtube 图片
+*.ytimg.com = server:https://dns.google/dns-query
+# Youtube Video
+*.googlevideo.com = server:https://dns.google/dns-query
+# Google Video Thumbnails
+*.gvt?.com = server:https://dns.google/dns-query
+# reCaptcha
+*.recaptcha.net = server:https://dns.google/dns-query
+# Gmail
+*.gmail.com = server:https://dns.google/dns-query
+# Google Source
+*.googlesource.com = server:https://dns.google/dns-query
+# Google AD Services
+*.googleadservices.com = server:https://dns.google/dns-query
+# DoubleClick
+*.doubleclick.net = server:https://dns.google/dns-query
+# AdSense
+*.adsense.com = server:https://dns.google/dns-query
+# AdSense Custom Search Ads
+*.adsensecustomsearchads.com = server:https://dns.google/dns-query
+# AdSense for mobile apps
+*.adsenseformobileapps.com = server:https://dns.google/dns-query
+# Google shortened URLs
+*.gle = server:https://dns.google/dns-query
+# Google URL Shortener
+goo.gl = server:https://dns.google/dns-query
+
+# > Cloudflare
+*.cloudflare.com = server:https://cloudflare-dns.com/dns-query
+# Cloudflare Stream
+*.cloudflarestream.com = server:https://cloudflare-dns.com/dns-query
+# Cloudflare Client
+*.cloudflareclient.com = server:https://cloudflare-dns.com/dns-query
+# Cloudflare Web Analytics
+*.cloudflareinsights.com = server:https://cloudflare-dns.com/dns-query
+# Cloudflare 1.1.1.1
+*.every1dns.net = server:https://cloudflare-dns.com/dns-query
+# Cloudflare SSL Certificate
+# *.cloudflaressl.com = server:https://cloudflare-dns.com/dns-query
+# Cloudflare DNS
+*.cloudflare-dns.com = server:https://cloudflare-dns.com/dns-query
+# CloudFlare Workers
+*.workers.dev = server:https://cloudflare-dns.com/dns-query
+
+# > 阿里巴巴
+*.alibaba.cn = server:https://dns.alidns.com/dns-query
+*.alibaba.com.cn = server:https://dns.alidns.com/dns-query
+# Alibaba 中国
+*.china.alibaba.com = server:https://dns.alidns.com/dns-query
+# 1688
+*.1688.com = server:https://dns.alidns.com/dns-query
+# 淘宝
+*.taobao.com = server:https://dns.alidns.com/dns-query
+# 淘宝 缓存
+*.tbcache.com = server:https://dns.alidns.com/dns-query
+# 天猫
+*.tmall.com = server:https://dns.alidns.com/dns-query
+# 阿里 CDN
+*.alicdn.com = server:https://dns.alidns.com/dns-query
+# 阿里云盘
+*.aliyundrive.com = server:https://dns.alidns.com/dns-query
+# 阿里云
+*.aliyun.* = server:https://dns.alidns.com/dns-query
+# 阿里云 CDN
+*.aliyuncdn.* = server:https://dns.alidns.com/dns-query
+# 阿里云 DDoS防护
+*.aliyunddos????.com = server:https://dns.alidns.com/dns-query
+# 阿里云API服务
+*.aliyuncs.com = server:https://dns.alidns.com/dns-query
+# 阿里云Web应用防火墙
+*.aliyundunwaf.com = server:https://dns.alidns.com/dns-query
+# 云引擎应用平台
+*.aliapp.com = server:https://dns.alidns.com/dns-query
+# 上云平台
+*.aliapp.org = server:https://dns.alidns.com/dns-query
+# 阿里用户上传资料
+*.alibabausercontent.com = server:https://dns.alidns.com/dns-query
+# mmstat 数据统计 广告追踪
+*.mmstat.com = server:https://dns.alidns.com/dns-query
+# 淘宝短网址
+tb.cn = server:https://dns.alidns.com/dns-query
+
+# > 蚂蚁集团
+*.alipay.com = server:https://dns.alidns.com/dns-query
+*.alipay.com.cn = server:https://dns.alidns.com/dns-query
+# 支付宝 HTTP DNS
+*.alipaydns.com = server:https://dns.alidns.com/dns-query
+# 支付宝 商家资源
+*.alipayeshop.com = server:https://dns.alidns.com/dns-query
+# 支付宝 Mdap
+*.alipaylog.com = server:https://dns.alidns.com/dns-query
+# 支付宝 静态资源
+*.alipayobjects.com = server:https://dns.alidns.com/dns-query
+# 支付宝 开放技术生态体系
+*.alipay-eco.com = server:https://dns.alidns.com/dns-query
+
+# > 腾讯
+*.tencent.com = server:https://doh.pub/dns-query
+# 腾讯云
+*.qcloud.com = server:https://doh.pub/dns-query
+# 腾讯云CDN
+*.qcloudcdn.cn = server:https://doh.pub/dns-query
+*.qcloudcdn.com = server:https://doh.pub/dns-query
+# 腾讯云对象储存
+*.qcloudcos.com = server:https://doh.pub/dns-query
+# 腾讯云静态资源
+*.qcloudimg.com = server:https://doh.pub/dns-query
+# 腾讯云超级管家
+*.qcloudcjgj.com = server:https://doh.pub/dns-query
+# 腾讯云网站管家
+*.qcloudwzgj.com = server:https://doh.pub/dns-query
+# 腾讯云主页管家
+*.qcloudzygj.com = server:https://doh.pub/dns-query
+# 腾讯开放云
+*.myqcloud.com = server:https://doh.pub/dns-query
+# 腾讯云
+*.tencent-cloud.net = server:https://doh.pub/dns-query
+# 腾讯云aiot解决方案
+*.tencentcloud-aiot.com = server:https://doh.pub/dns-query
+# 腾讯云API
+*.tencentcloudapi.com = server:https://doh.pub/dns-query
+# 腾讯云容器镜像服务TCR
+*.tencentcloudcr.com = server:https://doh.pub/dns-query
+# 腾讯云云市场
+*.tencentcloudmarket.com = server:https://doh.pub/dns-query
+# QQ
+*.qq.com = server:https://doh.pub/dns-query
+# 腾讯头像
+*.qlogo.cn = server:https://doh.pub/dns-query
+# 腾讯图片
+*.qpic.cn = server:https://doh.pub/dns-query
+# 微信
+*.weixin.qq.com = server:https://doh.pub/dns-query
+*.wx.qq.com = server:https://doh.pub/dns-query
+*.weixin.com = server:https://doh.pub/dns-query
+# 微信公众平台
+*.weixinbridge.com = server:https://doh.pub/dns-query
+# WeChat
+*.wechat.com = server:https://doh.pub/dns-query
+# 微信小程序
+*.servicewechat.com = server:https://doh.pub/dns-query
+# 微云
+*.weiyun.com = server:https://doh.pub/dns-query
+# 腾讯 图片 静态资源
+*.gtimg.cn = server:https://doh.pub/dns-query
+*.idqqimg.com = server:https://doh.pub/dns-query
+# 腾讯 静态资源 CDN
+*.cdn-go.cn = server:https://doh.pub/dns-query
+# 腾讯云 智能云解析DNS
+*.smtcdns.com = server:https://doh.pub/dns-query
+*.smtcdns.net = server:https://doh.pub/dns-query
+# 腾讯短网址
+url.cn = server:https://doh.pub/dns-query
+
+# > 百度
+*.baidu = server:180.76.76.76
+*.baidu.com = server:180.76.76.76
+# 百度 静态资源
+*.bdimg.com = server:180.76.76.76
+*.bdstatic.com = server:180.76.76.76
+# 百度网盘
+*.baidupcs.* = server:180.76.76.76
+# 百度云CDN
+*.baiduyuncdn.* = server:180.76.76.76
+# 百度云DNS
+*.baiduyundns.* = server:180.76.76.76
+# 百度云 DNS
+*.bdydns.* = server:180.76.76.76
+# 百度云 CDN
+*.bdycdn.* = server:180.76.76.76
+# 百度云 域名
+*.bdysite.com = server:180.76.76.76
+*.bdysites.com = server:180.76.76.76
+# 百度智能云
+*.baidubce.* = server:180.76.76.76
+# 百度智能云 DNS
+*.bcedns.* = server:180.76.76.76
+# 百度智能云 对象存储BOS
+*.bcebos.com = server:180.76.76.76
+# 百度智能云 播放器服务
+*.bcevod.com = server:180.76.76.76
+# 百度智能云 图片服务
+*.bceimg.com = server:180.76.76.76
+# 百度智能云 主机
+*.bcehost.com = server:180.76.76.76
+*.bcehosts.com = server:180.76.76.76
+# 百度短网址
+dwz.cn = server:180.76.76.76
+
+# > 360
+# 360安全中心
+*.360.cn = server:https://doh.360.cn/dns-query
+# 360安全卫士
+*.360safe.com = server:https://doh.360.cn/dns-query
+# 360快资讯
+*.360kuai.com = server:https://doh.360.cn/dns-query
+# 360搜索
+*.so.com = server:https://doh.360.cn/dns-query
+# 360网页快照服务
+*.360webcache.com = server:https://doh.360.cn/dns-query
+# 奇虎api
+*.qihuapi.com = server:https://doh.360.cn/dns-query
+# 360图床
+*.qhimg.com = server:https://doh.360.cn/dns-query
+*.qhimgs.com = server:https://doh.360.cn/dns-query
+*.qhimgs?.com = server:https://doh.360.cn/dns-query
+# 360
+*.qhmsg.com = server:https://doh.360.cn/dns-query
+# 奇虎静态资源
+*.qhres.com = server:https://doh.360.cn/dns-query
+*.qhres?.com = server:https://doh.360.cn/dns-query
+# 导航静态文件
+*.dhrest.com = server:https://doh.360.cn/dns-query
+# 360
+*.qhupdate.com = server:https://doh.360.cn/dns-query
+# 360安全云盘
+*.yunpan.cn = server:https://doh.360.cn/dns-query
+*.yunpan.com.cn = server:https://doh.360.cn/dns-query
+*.yunpan.com = server:https://doh.360.cn/dns-query
+# 360短网址
+urlqh.cn = server:https://doh.360.cn/dns-query
+
+# > BiliBili
+*.bilibili.com = server:system
+# BiliBili API
+*.biliapi.com = server:system
+*.biliapi.net = server:system
+# BiliBili CDN
+*.bilicdn?.com = server:system
+# BiliBili 静态资源
+*.hdslb.com = server:system
+*.hdslb.net = server:system
+# BiliBili 视频
+cn-hk-eq-bcache-??.bilivideo.com = server:system
+# BiliBili upos视频服务器（akamai）
+upos-hz-mirrorakam.akamaized.net = server:system
+# BiliBili upos视频服务器（asia-abroad.com）
+upos-sz-mirrorasiaov.bilibilivideo.com = server:system
+# BiliBili upos视频服务器（阿里云）
+upos-sz-mirrorali.bilivideo.com = server:https://dns.alidns.com/dns-query
+upos-sz-mirrorali?.bilivideo.com = server:https://dns.alidns.com/dns-query
+upos-sz-mirrorali??.bilivideo.com = server:https://dns.alidns.com/dns-query
+# BiliBili upos视频服务器（百度云）
+upos-sz-mirrorbos.bilivideo.com = server:180.76.76.76
+# BiliBili upos视频服务器（腾讯云）
+upos-sz-mirrorcos.bilivideo.com = server:https://doh.pub/dns-query
+upos-sz-mirrorcos?.bilivideo.com = server:https://doh.pub/dns-query
+upos-sz-mirrorcos??.bilivideo.com = server:https://doh.pub/dns-query
+# BiliBili upos视频服务器（华为云）
+upos-sz-mirrorhw.bilivideo.com = server:system
+upos-sz-mirrorhw?.bilivideo.com = server:system
+# BiliBili upos视频服务器（金山云）
+upos-sz-mirrorks3.bilivideo.com = server:system
+upos-sz-mirrorks3?.bilivideo.com = server:system
+# BiliBili upos视频服务器（七牛云）
+upos-sz-mirrorkodo.bilivideo.com = server:system
+upos-sz-mirrorkodo?.bilivideo.com = server:system
+# BiliBili upos视频服务器（网宿）
+upos-sz-mirrorwcs.bilivideo.com = server:system
+upos-sz-mirrorwcs?.bilivideo.com = server:system
+# BiliBili upos视频服务器（迅雷）
+upos-sz-mirrorxycdn.bilivideo.com = server:system
+# BiliBili upos视频服务器（百度云）
+upos-sz-upcdnbd??.bilivideo.com = server:180.76.76.76
+# BiliBili upos视频服务器
+upos-sz-upcdnhw.bilivideo.com = server:system
+# BiliBili upos视频服务器（腾讯云）
+upos-sz-upcdntx.bilivideo.com = server:https://doh.pub/dns-query
+# BiliBili upos视频服务器
+upos-sz-upcdnws.bilivideo.com = server:system
+upos-tf-all-js.bilivideo.com = server:system
+# BiliBili mCDN视频服务器
+*.mcdn.bilivideo.com = server:system
+# BiliBili 视频
+*.bilivideo.com = server:system
+*.bilivideo.cn = server:system
+# BiliBili短网址
+acg.tv = server:system
+
+# > 京东
+*.jd.com = server:system
+# 京东 静态资源
+*.360buyimg.com = server:system
+# 京东云
+*.jdcloud.com = server:system
+# 京东云 缓存和存储
+*.jcloudstatic.com = server:system
+# 京东云 静态资源
+*.jcloudstatic.net = server:system
+# 京东云 全局负载均衡
+*.jdgslb.com = server:system
+# 京东短网址
+3.cn = server:system
+
+# > iQDNS
+*.iqdns.xyz = server:https://a.passcloud.xyz/dns-query
+*.iqdnsio.co = server:https://a.passcloud.xyz/dns-query
+*.iqiq.io = server:https://a.passcloud.xyz/dns-query
+*.passcloud.xyz = server:https://a.passcloud.xyz/dns-query
+# iQZone
+uuu.glass = server:https://a.passcloud.xyz/dns-query
+*.uuu.glass = server:https://a.passcloud.xyz/dns-query
+*.uuuglass.co = server:https://a.passcloud.xyz/dns-query
+*.leoddns.cn = server:https://a.passcloud.xyz/dns-query
+*.gov-ddns.cn = server:https://a.passcloud.xyz/dns-query
+*.daliddns.cn = server:https://a.passcloud.xyz/dns-query
+*.xn--mes98khzje07c.xyz = server:https://a.passcloud.xyz/dns-query
+*.9218561.xyz = server:https://a.passcloud.xyz/dns-query
+*.211129.xyz = server:https://a.passcloud.xyz/dns-query
+*.gia.wiki = server:https://a.passcloud.xyz/dns-query
+*.checkmails.xyz = server:https://a.passcloud.xyz/dns-query
+*.iqyun.zone = server:https://a.passcloud.xyz/dns-query
+*.ddns-pop.cyou = server:https://a.passcloud.xyz/dns-query
+
+# > 🇨🇳 CN
+# CNNIC SDNS
+# 中国政府网
+# *.gov.cn = server:1.2.4.8
+# *.政务 = server:1.2.4.8
+
+# > 🇭🇰 HK
+# PCCW Enterprises Limited
+# *.pccw.com = server:dns1.pccw.com
+# 1O1O
+# *.1010.com.hk = server:dns1.pccw.com
+# csl.
+# *.hkcsl.com = server:dns1.pccw.com
+# The CLUB by HKT
+# *.theclub.com.hk = server:dns1.pccw.com
+# now.com
+# *.now.com = server:dns2.pccw.com
+# Now E
+# *.nowe.com = server:dns2.pccw.com
+# Now TV
+# *.now-tv.com = server:dns2.pccw.com
+# MOOV
+# *.moov.hk = server:dns3.pccw.com
+# viu
+# *.viu.com = server:dns3.pccw.com
+# viu tv
+# *.viu.tv = server:dns3.pccw.com
+# Hong Kong Cable Television Limited
+# *.hkcable.com.hk = server:dns1.hkcable.com.hk
+# i-CABLE
+# *.i-cable.com = server:dns2.hkcable.com.hk
+# CABLE TV Service
+# *.cabletv.com.hk = server:dns2.hkcable.com.hk
+# KDDI Hong Kong Limited
+# *.hk.kddi.com = server:apple.kdd.net.hk
+
+# > 🇹🇼 TW
+# 中华电信
+*.cht.com.tw  = server:https://dns.hinet.net/dns-query
+# 中华电信HiNet
+*.hinet.net = server:https://dns.hinet.net/dns-query
+# 中华电信emome
+*.emome.net = server:https://dns.hinet.net/dns-query
+# So-net Entertainment Taiwan
+# so-net.net.tw = server:ns1.so-net.net.tw
+# so-net.tw = server:ns1.so-net.net.tw
+# Taiwan Network Information Center
+*.tw = server:https://dns.twnic.tw/dns-query
+*.taipei = server:https://dns.twnic.tw/dns-query
+
+# > 🇺🇸 US
+# Hurricane Electric
+*.he.net = server:https://ordns.he.net/dns-query
+
+
+
+[Rewrite]
+#YouTube去广告B
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 header
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad - reject
+^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/player\/ad_break - reject
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - reject
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - reject
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext - reject
+
+
+
+[URL Rewrite]
+# 抖音 去广告&水印
+^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/feed\/ https://aweme.snssdk.com/aweme/v1/feed/ header
+^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/aweme\/post\/ https://aweme.snssdk.com/aweme/v1/aweme/post/ header
+^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/follow\/feed\/ https://aweme.snssdk.com/aweme/v1/follow/feed/ header
+^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/nearby\/feed\/ https://aweme.snssdk.com/aweme/v1/nearby/feed/ header
+^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/search\/item\/ https://aweme.snssdk.com/aweme/v1/search/item/ header
+^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/general\/search\/single\/ https://aweme.snssdk.com/aweme/v1/general/search/single/ header
+^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/hot/search\/video\/list\/ https://aweme.snssdk.com/aweme/v1/hot/search/video/list/ header
+
+# 云闪付 去广告
+^https:\/\/wallet\.95516\.com\/s\/wl\/icon\/long url reject
+# 交管12123 去广告
+^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery\/adver$ url reject
+# > 58同城
+^https?:\/\/.+\.58cdn\.com\.cn\/brandads\/ reject
+^https?:\/\/app\.58\.com\/api\/home\/advertising\/ reject
+^https?:\/\/app\.58\.com\/api\/home\/appadv\/ reject
+# > 爱奇艺
+^https?:\/\/.+\/cdn\/qiyiapp\/\d{8}\/.+&dis_dz= reject-img
+^https?:\/\/.+\/cdn\/qiyiapp\/\d{8}\/.+&z=\w reject-img
+^https?:\/\/.+\/videos\/other\/ reject
+^https?:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/fusion_switch reject-img
+# > 阿里巴巴
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv\/ reject
+# > 百度地图开屏广告
+^https:\/\/dss0\.bdstatic\.com\/.+/tam-ogel\/.+\.(jpg|mp4) reject
+# > 滴滴出行（推荐英文版）@ddgksf2013
+https?://res\.xiaojukeji\.com\/resapi\/activity\/mget reject-dict
+https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/get(Ruled|Preload|PasMultiNotices) reject
+# > 得物@kyle
+^https:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement\/ reject
+# > 饿了么
+^https?:\/\/elemecdn.com\/.+\/sitemap reject
+^https?:\/\/fuss10.elemecdn.com\/.+\/w\/640\/h\/\d{3,4} reject
+^https?:\/\/fuss10.elemecdn.com\/.+\/w\/750\/h\/\d{3,4} reject
+^https?:\/\/fuss10.elemecdn.com\/.+.mp4 reject
+^https?:\/\/www1.elecfans.com\/www\/delivery\/ reject
+# > 丰巢
+^https?:\/\/consumer\.fcbox\.com\/v\d\/ad\/ reject
+# > 高德
+^https?:\/\/m5.amap.com\/ws\/valueadded\/ reject
+# > 京东金融开屏广告
+^https?:\/\/ms\.jr\.jd\.com\/gw\/generic\/aladdin\/(new)?na\/m\/getLoadingPicture reject
+# > 酷我音乐去开屏广告 - rich.kuwo.cn,*.kwcdn.kuwo.cn,mobilead.kuwo.cn
+^https?:\/\/rich\.kuwo\.cn\/AdService\/kaiping\/.+ reject
+^https?:\/\/.+\.kwcdn\.kuwo\.cn\/star\/upload\/.+ reject
+^https?:\/\/mobilead\.kuwo\.cn\/EcomResourceServer\/adBubble\/.+ reject
+# > 美团应用
+^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/\w+\.(gif|jpg|jpg\.webp)$ reject
+^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) reject
+^https?:\/\/p\d\.meituan\.net\/(bizad|wmbanner)\/\w+\.jpg reject
+^https?:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?may_covertWebp reject
+# > 美团外卖开屏广告
+^https?:\/\/wmapi\.meituan\.com\/api\/v\d+\/loadInfo\? reject
+^https?:\/\/wmapi\.meituan\.com\/api\/v\d\/startpicture reject
+^https?:\/\/www\.meituan\.com\/api\/v\d\/appstatus\?ad reject
+# > 铁路12306开屏广告(倒计时仍然存在）@ddgksf2013
+https://ad.12306.cn/* reject
+# > 腾讯手机管家
+^https://otheve.beacon.qq.com\/analytics\/upload\?sid=.* reject
+# > 网易云音乐
+^https?:\/\/interface(\d)?.music.163.com\/eapi\/ad\/ reject
+# > 网易邮箱开屏广告
+^https?:\/\/appconf\.mail\.163\.com\/mmad\/get\.do reject
+^https?:\/\/client\.mail\.163.com\/apptrack\/confinfo\/(searchMultiAds.do|showAds.do) reject
+# > 网易严选（清除缓存使用）@ddgksf2013
+https://support.you.163.com/appversync/check.do reject
+^https?+:\/\/support\.you\.163\.com\/xhr\/boot\/getBootMedia\.json reject
+^https?:\/\/yanxuan.nosdn.127.net\/(static-union\/)?.*\.gif reject
+https:\/\/yanxuan.nosdn.127.net\/.*\.mp4 reject-dict
+# > 微信公众号图文
+^(http|https):\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad response-body "advertisement_num":\d,"advertisement_info":\[.+\], response-body "advertisement_num":0,"advertisement_info":[],
+# > 小红书开屏广告@chouchoui
+^https:\/\/www\.xiaohongshu\.com\/api\/sns\/v1\/ads\/apple\/record* reject
+^https:\/\/www\.xiaohongshu\.com\/api\/sns\/v1\/tag\/ads_engage* reject
+^https:\/\/www\.xiaohongshu\.com\/api\/sns\/v1\/ads\/resource* reject
+^https:\/\/pages\.xiaohongshu\.com\/data\/native\/matrix_switches* reject
+# > 闲鱼
+^https:\/\/gw.alicdn.com\/mt\/ reject
+^https:\/\/gw.alicdn.com\/tfs\/.+\d{3,4}-\d{4} reject
+^https:\/\/gw.alicdn.com\/tps\/.+\d{3,4}-\d{4} reject
+# > 小蚁@ddgksf2013
+^https://api.xiaoyi.com\/v5\/app\/mobile\/ads reject
+^https://api.xiaoyi.com\/v5\/app\/config\?userid=.* reject
+# > 知乎网页版强制登陆弹窗@HotKids
+^https?:\/\/static\.zhihu\.com\/[^\/]+\/(main|column)\.signflow\.[^.]+.js reject
+# > 界面新闻去广告@ddgksf2013
+^https?:\/\/img\.jiemian\.com\/ads\/ reject
+# > 金十数据去除开屏广告和应用内弹窗@kyle
+^https?:\/\/jad-api\.jin10\.com\/ad reject
+# > 看天下@ddgksf2013
+https://open3.vistastory.com/v3/api/index/loading_ad reject
+https://open3.vistastory.com/v3/api.*get_popup reject
+# > Soul@kyle
+^https:\/\/data-collector\.soulapp\.cn\/api\/data\/report$ reject
+
+
+#重定向
+(^https?:\/\/app\.biliintl\.com\/(x\/)?(intl|dm|reply|history|v\d\/(fav|msgfeed)).+?)(&s_locale=zh-Hans_[A-Z]{2})(.+?)(&sim_code=\d+)(.+) $1&s_locale=zh-Hans_PH$6&sim_code=51503$8 302
+(^https?:\/\/passport\.biliintl\.com\/x\/intl\/passport-login\/.+)(&s_locale=zh-Hans_[A-Z]{2})(.+)(&sim_code=\d+)(.+) $1&s_locale=zh-Hans_PH$35&sim_code=51503$5 302
+^http:\/\/(www.)?aicoin\.cn\/$ https://www.aicoin.com/ 302
+^http:\/\/(www.)?jd\.com\/ https://www.jd.com/ 302
+^http:\/\/(www.)?mi\.com\/ https://www.mi.com/ 302
+^http:\/\/(www.)?suning\.com\/ https://suning.com/ 302
+^http:\/\/(www.)?taobao\.com\/ https://taobao.com/ 302
+^http:\/\/(www.)?yhd\.com\/ https://yhd.com/ 302
+^http:\/\/you\.163\.com\/ https://you.163.com/ 302
+^https?:\/\/(ditu|maps).google\.cn https://maps.google.com 302
+^https?:\/\/(www.)?(betterzipcn|betterzip)\.(com|net)\/ https://macitbetter.com/ 302
+^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 302
+^https?:\/\/(www.)?(mycleanmymac|xitongqingli)\.com\/ https://macpaw.com/ 302
+^https?:\/\/(www.)?abbyychina\.com\/ https://www.abbyy.cn/ 302
+^https?:\/\/(www.)?alienskins\.cn\/ https://exposure.software/ 302
+^https?:\/\/(www.)?anydeskchina\.cn\/ https://anydesk.com/zhs 302
+^https?:\/\/(www.)?bartender\.cc\/ https://www.macbartender.com/ 302
+^https?:\/\/(www.)?beyondcompare\.cc\/ https://www.scootersoftware.com/ 302
+^https?:\/\/(www.)?bingdianhuanyuan\.cn\/ https://www.faronics.com/zh-hans/products/deep-freeze 302
+^https?:\/\/(www.)?chemdraw\.com\.cn\/ https://www.perkinelmer.com.cn/ 302
+^https?:\/\/(www.)?codesoftchina\.com\/ https://www.teklynx.com/ 302
+^https?:\/\/(www.)?coreldrawchina\.com\/ https://www.coreldraw.com/cn/ 302
+^https?:\/\/(www.)?crossoverchina\.com\/ https://www.codeweavers.com/ 302
+^https?:\/\/(www.)?dongmansoft\.com\/ https://www.udongman.cn/ 302
+^https?:\/\/(www.)?earmasterchina\.cn\/ https://www.earmaster.com/ 302
+^https?:\/\/(www.)?easyrecoverychina\.com\/ https://www.ontrack.com/ 302
+^https?:\/\/(www.)?ediuschina\.com\/ https://www.grassvalley.com/ 302
+^https?:\/\/(www.)?firefox\.com\.cn\/(download\/)?$ https://www.mozilla.org/zh-CN/firefox/new/ 302
+^https?:\/\/(www.)?flstudiochina\.com\/ https://www.image-line.com/ 302
+^https?:\/\/(www.)?folxchina\.cn\/ https://mac.eltima.com/cn/download-manager.html 302
+^https?:\/\/(www.)?formysql\.com\/ https://www.navicat.com.cn/ 302
+^https?:\/\/(www.)?guitarpro\.cc\/ https://www.guitar-pro.com/ 302
+^https?:\/\/(www.)?huishenghuiying\.com\.cn\/ https://www.coreldraw.com/cn/ 302
+^https?:\/\/(www.)?hypeapp\.cn\/ https://tumult.com/hype/ 302
+^https?:\/\/(www.)?iconworkshop\.cn\/ https://www.axialis.com/ 302
+^https?:\/\/(www.)?idmchina\.net\/ https://www.internetdownloadmanager.com/ 302
+^https?:\/\/(www.)?ign\.xn--fiqs8s\/ http://cn.ign.com/ccpref/us 302
+^https?:\/\/(www.)?imazingchina\.com\/ https://imazing.com/zh 302
+^https?:\/\/(www.)?imindmap\.cc\/ https://www.ayoa.com/previously-imindmap/ 302
+^https?:\/\/(www.)?jihehuaban\.com\.cn\/ https://www.chartwellyorke.com/sketchpad/x24795.html 302
+^https?:\/\/(www.)?kingdeecn\.cn\/ http://www.kingdee.com/ 302
+^https?:\/\/(www.)?logoshejishi\.com https://www.sothink.com/product/logo-design-software/ 302
+^https?:\/\/(www.)?luping\.net\.cn\/ https://www.techsmith.com/ 302
+^https?:\/\/(www.)?mathtype\.cn\/ https://www.dessci.com/ 302
+^https?:\/\/(www.)?mindmanager\.(cc|cn)\/ https://www.mindjet.com/cn/ 302
+^https?:\/\/(www.)?mindmapper\.cc\/ https://www.mindmapper.com/ 302
+^https?:\/\/(www.)?nicelabel\.cc\/ https://www.nicelabel.com/zh/ 302
+^https?:\/\/(www.)?ntfsformac\.cn\/ https://china.paragon-software.com/home-mac/ntfs-for-mac/ 302
+^https?:\/\/(www.)?officesoftcn\.com\/ https://www.microsoft.com/zh-cn/microsoft-365 302
+^https?:\/\/(www.)?overturechina\.com\/ https://sonicscores.com/ 302
+^https?:\/\/(www.)?passwordrecovery\.cn\/ https://cn.elcomsoft.com/aopr.html 302
+^https?:\/\/(www.)?pdfexpert\.cc\/ https://pdfexpert.com/zh 302
+^https?:\/\/(www.)?photozoomchina\.com\/ https://www.benvista.com/ 302
+^https?:\/\/(www.)?shankejingling\.com\/ https://www.sothink.com/product/flashdecompiler/ 302
+^https?:\/\/(www.)?vegaschina\.cn\/ https://www.vegascreativesoftware.com/ 302
+^https?:\/\/(www.)?xshellcn\.com\/ https://www.netsarang.com/zh/xshell/ 302
+^https?:\/\/(www.)?yuanchengxiezuo\.com\/ https://www.teamviewer.com/ 302
+^https?:\/\/cn\.ultraiso\.net\/ https://cn.ezbsystems.com/ultraiso/ 302
+^https?:\/\/hypersnap\.mairuan\.com\/ https://www.keyshot.com/ 302
+^https?:\/\/logoshejishi\.mairuan\.com\/ https://www.sothink.com/product/logo-design-software/ 302
+
+
+[Script]
+#节点媒体检测
+generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonExampleConfig/master/Script/generic_example.js,tag=GeoLocation,timeout=10,img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Domestic.png
+generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonScript/main/MediaCheck/ytb_check.js, tag=YouTube-解锁查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonScript/main/MediaCheck/nf_check.js, tag=Netflix-解锁查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonScript/main/MediaCheck/disney_check.js, tag=Disney-解锁查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Disney+.png
+generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonScript/main/MediaCheck/param_check.js, tag=Paramount-解锁查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Paramount.png
+generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonScript/main/MediaCheck/dazn_check.js, tag=Dazn-解锁查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/DAZN_2.png
+generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonScript/main/MediaCheck/discovery_check.js, tag=Discovery-解锁查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/discovery+.png
+generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonScript/main/MediaCheck/check.js, tag=流媒体-解锁查询, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ForeignMedia.png
+
+#代理链路检测
+#使用 Sub-Store 正常订阅节点，但在最下方的 节点操作 中选择 脚本操作 并选择 链接 添加 链接https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/Master/NodeLinkCheck/Sub-Store/Operator.js
+generic script-path=https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/Master/NodeLinkCheck/Script/NodeLinkCheck.js, tag=代理链路检测
+
+#spotify部分解锁premium,建议重新登录,音质不能设置为超高
+http-response ^https\:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://raw.githubusercontent.com/huang1179/Quan/X/Rew/Spotify.js, requires-body=true, binary-body-mode=true, timeout=10, tag=Spotify
+
+#YouTube去广告B
+http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide) script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/YouTube/YouTube_remove_ads.js, requires-body=true, binary-body-mode=true, tag=YouTube去视频贴片广告
+http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next)\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/YouTube/YouTube_remove_ads_plan_b.js, requires-body=true, binary-body-mode=true, tag=去瀑布流和播放页广告
+
+#B612咔叽解锁
+http-response https://user-kaji-api.b612kaji.com/v1/purchase/subscription/subscriber/status requires-body=1,script-path=https://github.com/deezertidal/private/raw/master/js-backup/Crack/612.js, tag=B612咔叽
+
+#扫描全能王解锁
+http-response https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/githubdulong/Script/master/CamScanner.js, tag=扫描全能王
+
+#抖音 去广告&水印
+http-response ^https?:\/\/aweme\.snssdk\.com\/aweme\/v1\/(feed|aweme\/post|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list)\/ requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/ArriettyQAQ/networktools/main/script/Douyin/douyin.js, requires-body=true, timeout=10, tag=抖音去水印
+
+#酷我年费会员
+http-response ^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/user\/vip|vip\/spi/mservice) requires-body=1, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Kuwo.js, tag=酷我年费会员
+
+#酷我听书+下载+解锁数字专辑
+/*
+http-response ^http://(.+).(lrts|kuwo).(me|cn)(/v2/api/user/info|/a.p|/vip/v2/user/vip) requires-body=true,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyy.js
+http-request ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?.+$ script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyyxz.js
+http-response ^http://vip1.kuwo.cn/vip/enc/user/vip.+$ requires-body=true,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyy.js
+http-response ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?newver.+$ requires-body=true,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyyszzj.js
+*/
+http-response ^https?:\/\/.*\.(kuwo|lrts)\.(cn|me)\/(a\.p|music\.pay|(vip\/(v2|enc)\/(theme|user\/vip))|(EcomResource|(Mobile)?Ad)Serv(er|ice)).* requires-body=1,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kw.js
+
+#微信公众号去广告
+http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js, tag=微信公众号去广告
+
+# 京东比价
+^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig) url script-response-body https://raw.githubusercontent.com/yichahucha/surge/master/jd_price.js
+
+# 淘宝比价
+^http://.+/amdc/mobileDispatch url script-request-body https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js
+^https?://trade-acs\.m\.taobao\.com/gw/mtop\.taobao\.detail\.getdetail url script-response-body https://raw.githubusercontent.com/yichahucha/surge/master/tb_price.js
+
+# 微博去广告以及去除各部分推广模块 - cherish
+http-response ^https?://m?api\.weibo\.c(n|om)/2/(cardlist|searchall|page|messageflow|statuses/(unread_)?friends(/|_)timeline|groups/timeline|statuses/(unread_hot_timeline|extend|video_mixtimeline)|profile/(me|statuses)|video/(community_tab|remind_info|tiny_stream_video_list)|checkin/show|\!/live/media_homelist|comments/build_comments|container/get_item|search/(finder|container_timeline|container_discover)) requires-body=1,script-path=https://raw.githubusercontent.com/zmqcherish/proxy-script/main/weibo_main.js
+# 删除微博开屏广告 - cherish
+http-response ^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua) requires-body=1,script-path=https://raw.githubusercontent.com/zmqcherish/proxy-script/main/weibo_launch.js
+# 自定义tab皮肤
+http-response ^https://api.weibo.cn/2/!/client/light_skin requires-body=1,script-path=https://raw.githubusercontent.com/zmqcherish/proxy-script/main/weibo_main.js
+# 非会员设置tab皮肤 - cherish
+http-response ^https://new.vip.weibo.cn/littleskin/preview requires-body=1,script-path=https://raw.githubusercontent.com/zmqcherish/proxy-script/main/weibo_main.js
+
+#爱企查vip
+http-response ^https:\//aiqicha.baidu.com\/usercenter\/getvipinfoajax requires-body=1,script-path=https://raw.githubusercontent.com/litieyin/AD_VIP/main/Script/aiqicha.js,tag=爱企查
+
+#百度文库文章解锁
+http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo requires-body=1,script-path=https://github.com/deezertidal/private/raw/master/js-backup/Crack/baidulibrary.js,tag=百度文库
+
+#FT中文网解锁
+http-response ^https?:\/\/user\.ftmailbox\.cn\/ios-receipt-validation\.php.* requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Crack/ftchinese.js,tag=FT中文网
+
+#美图秀秀会员
+http-response ^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/ requires-body=1,script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/MeiTuXiuXiu.js,tag=美图秀秀
+
+# 微信打不开的链接会进行跳转，包括抖音淘宝等链接甚至可扫描支付宝二维码
+http-response ^https?:\/\/weixin110\.qq\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/HotKids/Rules/master/Script/weixin110.js,tag=微信跳转
+
+
+
+[Mitm]
+hostname =spclient.wg.spotify.com, -redirector*.googlevideo.com,youtubei.googleapis.com,*.googlevideo.com,www.youtube.com,s.youtube.com, user-kaji-api.b612kaji.com, ap*.intsig.net, *.amemv.com,aweme.snssdk.com, vip1.kuwo.cn, *.kuwo.cn, *.lrts.me, mp.weixin.qq.com, trade-acs.m.taobao.com, api.m.jd.com, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn, aiqicha.baidu.com, appwk.baidu.com, user.ftmailbox.cn, api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com, weixin110.qq.com
+#重定向
+hostname = abbyychina.com,aicoin.cn,alienskins.cn,anydeskchina.cn,app.biliintl.com,bartender.cc,beyondcompare.cc,bingdianhuanyuan.cn,chemdraw.com.cn,cn.ultraiso.net,codesoftchina.com,coreldrawchina.com,crossoverchina.com,ditu.google.cn,dongmansoft.com,earmasterchina.cn,easyrecoverychina.com,ediuschina.com,firefox.com.cn,flstudiochina.com,folxchina.cn,formysql.com,g.cn,google.cn,guitarpro.cc,huishenghuiying.com.cn,hypeapp.cn,hypersnap.mairuan.com,iconworkshop.cn,idmchina.net,ign.xn--fiqs8s,imazingchina.com,imindmap.cc,jd.com,jihehuaban.com.cn,kingdeecn.cn,logoshejishi.com,logoshejishi.mairuan.com,luping.net.cn,map.google.cn,mathtype.cn,mi.com,mindmanager.cc,mindmanager.cn,mindmapper.cc,mycleanmymac.com,nicelabel.cc,ntfsformac.cn,officesoftcn.com,overturechina.com,passport.biliintl.com,passwordrecovery.cn,pdfexpert.cc,photozoomchina.com,shankejingling.com,suning.com,taobao.com,vegaschina.cn,www.abbyychina.com,www.aicoin.cn,www.alienskins.cn,www.anydeskchina.cn,www.bartender.cc,www.betterzip.com,www.betterzip.net,www.betterzipcn.com,www.betterzipcn.net,www.beyondcompare.cc,www.bingdianhuanyuan.cn,www.chemdraw.com.cn,www.codesoftchina.com,www.coreldrawchina.com,www.crossoverchina.com,www.dongmansoft.com,www.earmasterchina.cn,www.easyrecoverychina.com,www.ediuschina.com,www.firefox.com.cn,www.flstudiochina.com,www.folxchina.cn,www.formysql.com,www.g.cn,www.google.cn,www.guitarpro.cc,www.huishenghuiying.com.cn,www.hypeapp.cn,www.iconworkshop.cn,www.idmchina.net,www.ign.xn--fiqs8s,www.imazingchina.com,www.imindmap.cc,www.jihehuaban.com.cn,www.kingdeecn.cn,www.logoshejishi.com,www.luping.net.cn,www.mathtype.cn,www.mindmanager.cc,www.mindmanager.cn,www.mindmapper.cc,www.mycleanmymac.com,www.nicelabel.cc,www.ntfsformac.cn,www.officesoftcn.com,www.overturechina.com,www.passwordrecovery.cn,www.pdfexpert.cc,www.photozoomchina.com,www.shankejingling.com,www.xitongqingli.com,www.xshellcn.com,www.yuanchengxiezuo.com,www.zbrushcn.com,xitongqingli.com,xshellcn.com,yhd.com,you.163.com,yuanchengxiezuo.com,zbrushcn.com
+
+
+
