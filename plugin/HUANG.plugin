@@ -689,36 +689,12 @@ generic script-path=https://raw.githubusercontent.com/Loon0x00/LoonScript/main/M
 #使用 Sub-Store 正常订阅节点，但在最下方的 节点操作 中选择 脚本操作 并选择 链接 添加 链接https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/Master/NodeLinkCheck/Sub-Store/Operator.js
 generic script-path=https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/Master/NodeLinkCheck/Script/NodeLinkCheck.js, tag=代理链路检测
 
-#spotify部分解锁premium,建议重新登录,音质不能设置为超高
-http-response ^https\:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://raw.githubusercontent.com/huang1179/Loon/H/Script/Spotify.js, requires-body=true, binary-body-mode=true, timeout=10, tag=Spotify
-
 #YouTube去广告B
 http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide) script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/YouTube/YouTube_remove_ads.js, requires-body=true, binary-body-mode=true, tag=YouTube去视频贴片广告
 http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next)\? script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/YouTube/YouTube_remove_ads_plan_b.js, requires-body=true, binary-body-mode=true, tag=去瀑布流和播放页广告
 
-#TF区域限制解除
-http-request ^https?:\/\/testflight\.apple\.com\/v\d\/accounts\/.+?\/install$ requires-body=1,max-size=0,script-path=https://gist.githubusercontent.com/NobyDa/9be418b93afc5e9c8a8f4d28ae403cf2/raw/TF_Download.js, tag=TF区域限制解除
-
-#B612咔叽解锁
-http-response https://user-kaji-api.b612kaji.com/v1/purchase/subscription/subscriber/status requires-body=1,script-path=https://github.com/deezertidal/private/raw/master/js-backup/Crack/612.js, tag=B612咔叽
-
-#扫描全能王解锁
-http-response https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/githubdulong/Script/master/CamScanner.js, tag=扫描全能王
-
 #抖音 去广告&水印
 http-response ^https?:\/\/aweme\.snssdk\.com\/aweme\/v1\/(feed|aweme\/post|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list)\/ requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/ArriettyQAQ/networktools/main/script/Douyin/douyin.js, requires-body=true, timeout=10, tag=抖音去水印
-
-#酷我年费会员
-http-response ^https?:\/\/vip1\.kuwo\.cn\/(vip\/v2\/user\/vip|vip\/spi/mservice) requires-body=1, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Kuwo.js, tag=酷我年费会员
-
-#酷我听书+下载+解锁数字专辑
-/*
-http-response ^http://(.+).(lrts|kuwo).(me|cn)(/v2/api/user/info|/a.p|/vip/v2/user/vip) requires-body=true,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyy.js
-http-request ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?.+$ script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyyxz.js
-http-response ^http://vip1.kuwo.cn/vip/enc/user/vip.+$ requires-body=true,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyy.js
-http-response ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?newver.+$ requires-body=true,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kwyyszzj.js
-*/
-http-response ^https?:\/\/.*\.(kuwo|lrts)\.(cn|me)\/(a\.p|music\.pay|(vip\/(v2|enc)\/(theme|user\/vip))|(EcomResource|(Mobile)?Ad)Serv(er|ice)).* requires-body=1,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kw.js
 
 #微信公众号去广告
 http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad requires-body=1,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js, tag=微信公众号去广告
@@ -739,25 +715,13 @@ http-response ^https://api.weibo.cn/2/!/client/light_skin requires-body=1,script
 # 非会员设置tab皮肤 - cherish
 http-response ^https://new.vip.weibo.cn/littleskin/preview requires-body=1,script-path=https://raw.githubusercontent.com/zmqcherish/proxy-script/main/weibo_main.js
 
-#爱企查vip
-http-response ^https:\//aiqicha.baidu.com\/usercenter\/getvipinfoajax requires-body=1,script-path=https://raw.githubusercontent.com/litieyin/AD_VIP/main/Script/aiqicha.js,tag=爱企查
-
-#百度文库文章解锁
-http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo requires-body=1,script-path=https://github.com/deezertidal/private/raw/master/js-backup/Crack/baidulibrary.js,tag=百度文库
-
-#FT中文网解锁
-http-response ^https?:\/\/user\.ftmailbox\.cn\/ios-receipt-validation\.php.* requires-body=1,script-path=https://raw.githubusercontent.com/deezertidal/private/master/js-backup/Crack/ftchinese.js,tag=FT中文网
-
-#美图秀秀会员
-http-response ^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)\/ requires-body=1,script-path=https://raw.githubusercontent.com/I-am-R-E/QuantumultX/main/JavaScript/MeiTuXiuXiu.js,tag=美图秀秀
-
 # 微信打不开的链接会进行跳转，包括抖音淘宝等链接甚至可扫描支付宝二维码
 http-response ^https?:\/\/weixin110\.qq\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/HotKids/Rules/master/Script/weixin110.js,tag=微信跳转
 
 
 
 [Mitm]
-hostname =spclient.wg.spotify.com, -redirector*.googlevideo.com,youtubei.googleapis.com,*.googlevideo.com,www.youtube.com,s.youtube.com, user-kaji-api.b612kaji.com, ap*.intsig.net, *.amemv.com,aweme.snssdk.com, vip1.kuwo.cn, *.kuwo.cn, *.lrts.me, mp.weixin.qq.com, trade-acs.m.taobao.com, api.m.jd.com, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn, aiqicha.baidu.com, appwk.baidu.com, user.ftmailbox.cn, api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com, weixin110.qq.com, testflight.apple.com
+hostname = -redirector*.googlevideo.com,youtubei.googleapis.com,*.googlevideo.com,www.youtube.com,s.youtube.com, ap*.intsig.net, *.amemv.com,aweme.snssdk.com, *.lrts.me, mp.weixin.qq.com, trade-acs.m.taobao.com, api.m.jd.com, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn, weixin110.qq.com
 #重定向
 hostname = abbyychina.com,aicoin.cn,alienskins.cn,anydeskchina.cn,app.biliintl.com,bartender.cc,beyondcompare.cc,bingdianhuanyuan.cn,chemdraw.com.cn,cn.ultraiso.net,codesoftchina.com,coreldrawchina.com,crossoverchina.com,ditu.google.cn,dongmansoft.com,earmasterchina.cn,easyrecoverychina.com,ediuschina.com,firefox.com.cn,flstudiochina.com,folxchina.cn,formysql.com,g.cn,google.cn,guitarpro.cc,huishenghuiying.com.cn,hypeapp.cn,hypersnap.mairuan.com,iconworkshop.cn,idmchina.net,ign.xn--fiqs8s,imazingchina.com,imindmap.cc,jd.com,jihehuaban.com.cn,kingdeecn.cn,logoshejishi.com,logoshejishi.mairuan.com,luping.net.cn,map.google.cn,mathtype.cn,mi.com,mindmanager.cc,mindmanager.cn,mindmapper.cc,mycleanmymac.com,nicelabel.cc,ntfsformac.cn,officesoftcn.com,overturechina.com,passport.biliintl.com,passwordrecovery.cn,pdfexpert.cc,photozoomchina.com,shankejingling.com,suning.com,taobao.com,vegaschina.cn,www.abbyychina.com,www.aicoin.cn,www.alienskins.cn,www.anydeskchina.cn,www.bartender.cc,www.betterzip.com,www.betterzip.net,www.betterzipcn.com,www.betterzipcn.net,www.beyondcompare.cc,www.bingdianhuanyuan.cn,www.chemdraw.com.cn,www.codesoftchina.com,www.coreldrawchina.com,www.crossoverchina.com,www.dongmansoft.com,www.earmasterchina.cn,www.easyrecoverychina.com,www.ediuschina.com,www.firefox.com.cn,www.flstudiochina.com,www.folxchina.cn,www.formysql.com,www.g.cn,www.google.cn,www.guitarpro.cc,www.huishenghuiying.com.cn,www.hypeapp.cn,www.iconworkshop.cn,www.idmchina.net,www.ign.xn--fiqs8s,www.imazingchina.com,www.imindmap.cc,www.jihehuaban.com.cn,www.kingdeecn.cn,www.logoshejishi.com,www.luping.net.cn,www.mathtype.cn,www.mindmanager.cc,www.mindmanager.cn,www.mindmapper.cc,www.mycleanmymac.com,www.nicelabel.cc,www.ntfsformac.cn,www.officesoftcn.com,www.overturechina.com,www.passwordrecovery.cn,www.pdfexpert.cc,www.photozoomchina.com,www.shankejingling.com,www.xitongqingli.com,www.xshellcn.com,www.yuanchengxiezuo.com,www.zbrushcn.com,xitongqingli.com,xshellcn.com,yhd.com,you.163.com,yuanchengxiezuo.com,zbrushcn.com
 
