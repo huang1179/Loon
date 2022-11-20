@@ -512,154 +512,6 @@ uuu.glass = server:https://a.passcloud.xyz/dns-query
 
 
 [URL Rewrite]
-#聚合搜索
-# wiki xxx (Wikipedia)
-^https:\/\/duckduckgo.com\/\?q=wiki(\+|%20)([^&]+).+ https://wikipedia.org/wiki/$2 302
-
-# wk xxx (Wikipedia 中文)
-^https:\/\/duckduckgo.com\/\?q=wk(\+|%20)([^&]+).+ https://zh.wikipedia.org/wiki/$2 302
-
-# wz xxx (无追搜索)
-^https:\/\/duckduckgo.com\/\?q=wz\+([^&]+).+ https://www.wuzhuiso.com/s?q=$1 302
-
-# mg xxx (Magi)
-^https:\/\/duckduckgo.com\/\?q=mg(\+|%20)([^&]+).+ https://magi.com/search?q=$2 302
-
-# bd xxx (百度)
-^https:\/\/duckduckgo.com\/\?q=bd(\+|%20)([^&]+).+ https://www.baidu.com/s?wd=$2 302
-
-# bi xxx (必应)
-^https:\/\/duckduckgo.com\/\?q=bi\+([^&]+).+ https://cn.bing.com/search?q=$1 302
-    
-# tt xxx (头条)
-^https:\/\/duckduckgo.com\/\?q=tt\+([^&]+).+ https://so.toutiao.com/search?keyword=$1 302
-    
-# yh xxx (油猴搜索)
-^https:\/\/duckduckgo.com\/\?q=yh\+([^&]+).+ https://greasyfork.org/zh-CN/scripts?q=$1 302
-
-# gh xxx (GitHub)
-^https:\/\/duckduckgo.com\/\?q=gh(\+|%20)([^&]+).+ https://github.com/search?q=$2 302
-
-# tf xxx (Google 搜索 TestFlight)
-^https:\/\/duckduckgo.com\/\?q=tf(\+|%20)([^&]+).+ https://www.google.com/search?as_q=$2&as_sitesearch=testflight.apple.com 302
-
-# gi xxx (Google 图片)
-^https:\/\/duckduckgo.com\/\?q=gi(\+|%20)([^&]+).+ https://www.google.com/search?&tbm=isch&q=$2 302
-
-# yd xxx (有道词典)
-^https:\/\/duckduckgo.com\/\?q=yd(\+|%20)([^&]+).+ https://dict.youdao.com/search?q=$2 302
-
-# trc xxx (Google 译至中)
-^https:\/\/duckduckgo.com\/\?q=trc(\+|%20)([^&]+).+ https://translate.google.com/#view=home&op=translate&sl=auto&tl=zh-CN&text=$2 302
-
-# tre xxx (Google 译至英)
-^https:\/\/duckduckgo.com\/\?q=tre(\+|%20)([^&]+).+ https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=$2 302
-
-# trj xxx (Google 译至日)
-^https:\/\/duckduckgo.com\/\?q=trj(\+|%20)([^&]+).+ https://translate.google.com/#view=home&op=translate&sl=auto&tl=ja&text=$2 302
-
-# sspai xxx (少数派站内搜索)
-^https:\/\/duckduckgo.com\/\?q=sspai(\+|%20)([^&]+).+ https://sspai.com/search/post/$2 302
-
-# ssp xxx (Google 搜索少数派)
-^https:\/\/duckduckgo.com\/\?q=ssp(\+|%20)([^&]+).+ https://www.google.com/search?as_q=$2&as_sitesearch=sspai.com 302
-
-# ytb xxx (YouTube)
-^https:\/\/duckduckgo.com\/\?q=ytb(\+|%20)([^&]+).+ https://www.youtube.com/results?search_query=$2 302
-
-# bli xxx (哔哩哔哩)
-^https:\/\/duckduckgo.com\/\?q=bli\+([^&]+).+ https://m.bilibili.com/search?keyword=$1 302
-    
-# af  xxx (Acfun)
-^https:\/\/duckduckgo.com\/\?q=af\+([^&]+).+ https://www.acfun.cn/search?keyword=$1 302
-    
-# ph  xxx (PornHub)
-^https:\/\/duckduckgo.com\/\?q=ph\+([^&]+).+ https://cn.pornhub.com/video/search?search=$1 302
-
-# ys xxx (cupfox)
-^https:\/\/duckduckgo.com\/\?q=ys\+([^&]+).+ https://cupfox.app/search?key=$1 302
-
-# so xxx (Stack Overflow)
-^https:\/\/duckduckgo.com\/\?q=so(\+|%20)([^&]+).+ https://stackoverflow.com/search?q=$2 302
-
-# se xxx (StackExchange)
-^https:\/\/duckduckgo.com\/\?q=se(\+|%20)([^&]+).+ https://stackexchange.com/search?q=$2 302
-
-# wa xxx (WolframAlpha)
-^https:\/\/duckduckgo.com\/\?q=wa(\+|%20)([^&]+).+ https://www.wolframalpha.com/input/?i=$2 302
-
-# db xxx (豆瓣)
-^https:\/\/duckduckgo.com\/\?q=db\+([^&]+).+ https://m.douban.com/search/?query=$1 302
-
-# zh xxx (知乎)
-^https:\/\/duckduckgo.com\/\?q=zh(\+|%20)([^&]+).+ https://www.zhihu.com/search?q=$2 302
-
-# wb xxx (微博)
-^https:\/\/duckduckgo.com\/\?q=wb(\+|%20)([^&]+).+ https://s.weibo.com/weibo/$2 302
-
-# wx xxx (微信)
-^https:\/\/duckduckgo.com\/\?q=wx\+([^&]+).+ https://weixin.sogou.com/weixinwap?query=$1 302
-
-# rd xxx (Reddit)
-^https:\/\/duckduckgo.com\/\?q=rd(\+|%20)([^&]+).+ https://www.reddit.com/search?q=$2 302
-
-# tw xxx (Twitter)
-^https:\/\/duckduckgo.com\/\?q=tw(\+|%20)([^&]+).+ https://twitter.com/search?q=$2 302
-
-# gd xxx (Google 搜索 Google Drive 资源)
-^https:\/\/duckduckgo.com\/\?q=gd(\+|%20)([^&]+).+ https://www.google.com/search?q=%22Google+Drive%22+$2 302
-
-# tgd xxx (t.me/gdsharing 搜索 Google Drive 资源)
-^https:\/\/duckduckgo.com\/\?q=tgd(\+|%20)([^&]+).+ https://t.me/s/gdsharing?q=$2 302
-
-# tal xxx (t.me/shareAliyun 搜索阿里云盘资源)
-^https:\/\/duckduckgo.com\/\?q=tal(\+|%20)([^&]+).+ https://t.me/s/shareAliyun?q=$2 302
-
-# tal2 xxx (t.me/YunPanPan 搜索阿里云盘资源)
-^https:\/\/duckduckgo.com\/\?q=tal2(\+|%20)([^&]+).+ https://t.me/s/YunPanPan?q=$2 302
-
-# rut xxx (Google 搜索 rutracker)
-^https:\/\/duckduckgo.com\/\?q=rut(\+|%20)([^&]+).+ https://www.google.com/search?as_q=$2&as_sitesearch=rutracker.org 302
-
-# zdm xxx (什么值得买)
-^https:\/\/duckduckgo.com\/\?q=zdm\+([^&]+).+ https://search.m.smzdm.com/?v=b&s=$1 302
-    
-# jd xxx (京东)
-^https:\/\/duckduckgo.com\/\?q=jd\+([^&]+).+ https://so.m.jd.com/ware/search.action?keyword=$1 302
-    
-# tb xxx (淘宝)
-^https:\/\/duckduckgo.com\/\?q=tb\+([^&]+).+ https://s.m.taobao.com/h5?q=$1 302
-
-# ddg xxx (还原 DuckDuckGo)
-^https:\/\/duckduckgo.com\/\?q=ddg(\+|%20)([^&]+).+ https://duckduckgo.com/?ia=about&q=$2 302
-
-# ios xxx (Apple Store应用搜索)
-^https:\/\/duckduckgo.com\/\?q=ios\+([^&]+).+ https://www.qimai.cn/search/index/search/$1 302
-
-# ccn (App Store网页版 临时切换至中国区) 感谢 @mieqq
-^https:\/\/duckduckgo.com\/\?q=ccn&.+ https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143465&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=cn&urlDesc= 302
-
-# uus (App Store网页版 临时切换至美国区) 感谢 @mieqq
-^https:\/\/duckduckgo.com\/\?q=uus&.+ https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143441&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=us&urlDesc= 302
-
-# hhk (App Store网页版 临时切换至香港区)
-^https:\/\/duckduckgo.com\/\?q=hhk&.+ https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143463&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=hk&urlDesc= 302
-
-# ttw (App Store网页版 临时切换至台湾区)
-^https:\/\/duckduckgo.com\/\?q=ttw&.+ https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143470&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=tw&urlDesc= 302
-    
-# jjp (App Store网页版 临时切换至日本区)
-^https:\/\/duckduckgo.com\/\?q=jjp&.+ https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143462&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=jp&urlDesc= 302
-    
-# kkr (App Store网页版 临时切换至韩国区)
-^https:\/\/duckduckgo.com\/\?q=kkr&.+ https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143466&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=kr&urlDesc= 302
-    
-# ttr (App Store网页版 临时切换至土耳其区)
-^https:\/\/duckduckgo.com\/\?q=ttr&.+ https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143480&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=tr&urlDesc= 302
-
-# xxx （无指令默认为 Google）
-^https:\/\/duckduckgo.com\/\?q=(?!dl(c|e|j)(\+|%20))([^&]+).+ https://www.google.com/search?q=$3&num=100 302
-
 # 抖音 去广告&水印
 ^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/feed\/ https://aweme.snssdk.com/aweme/v1/feed/ header
 ^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/aweme\/post\/ https://aweme.snssdk.com/aweme/v1/aweme/post/ header
@@ -902,20 +754,10 @@ http-response ^https?:\/\/(h5|api)\.xiuxiu\.meitu\.com\/v\d\/(h\d\/vip|vip|user)
 # 微信打不开的链接会进行跳转，包括抖音淘宝等链接甚至可扫描支付宝二维码
 http-response ^https?:\/\/weixin110\.qq\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/HotKids/Rules/master/Script/weixin110.js,tag=微信跳转
 
-#聚合搜索
-# dlc xxx (DeepL 译至中)
-http-request ^https:\/\/duckduckgo.com\/\?q=dlc(\+|%20)([^&]+).+ requires-body=1,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/DeepLQ-search.js,tag=DeepLtoChinese
-
-# dle xxx (DeepL 译至英)
-http-request ^https:\/\/duckduckgo.com\/\?q=dle(\+|%20)([^&]+).+ requires-body=1,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/DeepLQ-search.js,tag=DeepLtoEnglish
-
-# dlj xxx (DeepL 译至日)
-http-request ^https:\/\/duckduckgo.com\/\?q=dlj(\+|%20)([^&]+).+ requires-body=1,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/DeepLQ-search.js,tag=DeepLtoJapanese
-
 
 
 [Mitm]
-hostname =spclient.wg.spotify.com, -redirector*.googlevideo.com,youtubei.googleapis.com,*.googlevideo.com,www.youtube.com,s.youtube.com, user-kaji-api.b612kaji.com, ap*.intsig.net, *.amemv.com,aweme.snssdk.com, vip1.kuwo.cn, *.kuwo.cn, *.lrts.me, mp.weixin.qq.com, trade-acs.m.taobao.com, api.m.jd.com, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn, aiqicha.baidu.com, appwk.baidu.com, user.ftmailbox.cn, api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com, weixin110.qq.com, testflight.apple.com, duckduckgo.com
+hostname =spclient.wg.spotify.com, -redirector*.googlevideo.com,youtubei.googleapis.com,*.googlevideo.com,www.youtube.com,s.youtube.com, user-kaji-api.b612kaji.com, ap*.intsig.net, *.amemv.com,aweme.snssdk.com, vip1.kuwo.cn, *.kuwo.cn, *.lrts.me, mp.weixin.qq.com, trade-acs.m.taobao.com, api.m.jd.com, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn, aiqicha.baidu.com, appwk.baidu.com, user.ftmailbox.cn, api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com, weixin110.qq.com, testflight.apple.com
 #重定向
 hostname = abbyychina.com,aicoin.cn,alienskins.cn,anydeskchina.cn,app.biliintl.com,bartender.cc,beyondcompare.cc,bingdianhuanyuan.cn,chemdraw.com.cn,cn.ultraiso.net,codesoftchina.com,coreldrawchina.com,crossoverchina.com,ditu.google.cn,dongmansoft.com,earmasterchina.cn,easyrecoverychina.com,ediuschina.com,firefox.com.cn,flstudiochina.com,folxchina.cn,formysql.com,g.cn,google.cn,guitarpro.cc,huishenghuiying.com.cn,hypeapp.cn,hypersnap.mairuan.com,iconworkshop.cn,idmchina.net,ign.xn--fiqs8s,imazingchina.com,imindmap.cc,jd.com,jihehuaban.com.cn,kingdeecn.cn,logoshejishi.com,logoshejishi.mairuan.com,luping.net.cn,map.google.cn,mathtype.cn,mi.com,mindmanager.cc,mindmanager.cn,mindmapper.cc,mycleanmymac.com,nicelabel.cc,ntfsformac.cn,officesoftcn.com,overturechina.com,passport.biliintl.com,passwordrecovery.cn,pdfexpert.cc,photozoomchina.com,shankejingling.com,suning.com,taobao.com,vegaschina.cn,www.abbyychina.com,www.aicoin.cn,www.alienskins.cn,www.anydeskchina.cn,www.bartender.cc,www.betterzip.com,www.betterzip.net,www.betterzipcn.com,www.betterzipcn.net,www.beyondcompare.cc,www.bingdianhuanyuan.cn,www.chemdraw.com.cn,www.codesoftchina.com,www.coreldrawchina.com,www.crossoverchina.com,www.dongmansoft.com,www.earmasterchina.cn,www.easyrecoverychina.com,www.ediuschina.com,www.firefox.com.cn,www.flstudiochina.com,www.folxchina.cn,www.formysql.com,www.g.cn,www.google.cn,www.guitarpro.cc,www.huishenghuiying.com.cn,www.hypeapp.cn,www.iconworkshop.cn,www.idmchina.net,www.ign.xn--fiqs8s,www.imazingchina.com,www.imindmap.cc,www.jihehuaban.com.cn,www.kingdeecn.cn,www.logoshejishi.com,www.luping.net.cn,www.mathtype.cn,www.mindmanager.cc,www.mindmanager.cn,www.mindmapper.cc,www.mycleanmymac.com,www.nicelabel.cc,www.ntfsformac.cn,www.officesoftcn.com,www.overturechina.com,www.passwordrecovery.cn,www.pdfexpert.cc,www.photozoomchina.com,www.shankejingling.com,www.xitongqingli.com,www.xshellcn.com,www.yuanchengxiezuo.com,www.zbrushcn.com,xitongqingli.com,xshellcn.com,yhd.com,you.163.com,yuanchengxiezuo.com,zbrushcn.com
 
