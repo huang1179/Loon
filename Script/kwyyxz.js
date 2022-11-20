@@ -10,10 +10,10 @@
         请勿转载与贩卖！⚠️⚠️⚠️
 [rewrite_local]
 # 解锁酷我音乐会员下载
-^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?.+$ url script-request-header https://raw.githubusercontent.com/huang1179/Quan/X/Loon/kwyyxz.js
+^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?.+$ url script-request-header https://raw.githubusercontent.com/huang1179/Loon/H/Script/kwyyxz.js
 
 [Script］
-http-response ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?newver.+$ requires-body=true,script-path=https://raw.githubusercontent.com/huang1179/Quan/X/Rew/kwyyxz.js,tag=kwxz
+http-response ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?newver.+$ requires-body=true,script-path=https://raw.githubusercontent.com/huang1179/Loon/H/Script/kwyyxz.js,tag=kwxz
 
 [mitm] 
 hostname = *.kuwo.cn
