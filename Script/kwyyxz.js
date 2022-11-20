@@ -13,7 +13,7 @@
 ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?.+$ url script-request-header https://raw.githubusercontent.com/huang1179/Loon/H/Script/kwyyxz.js
 
 [Script］
-http-response ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?newver.+$ requires-body=true,script-path=https://raw.githubusercontent.com/huang1179/Loon/H/Script/kwyyxz.js,tag=kwxz
+http-response ^https?:\/\/musicpay\.kuwo\.cn\/music\.pay\?newver.+$ requires-body=true,script-path=https://raw.githubusercontent.com/huang1179/Loon/H/Script/kwyyxz.js
 
 [mitm] 
 hostname = *.kuwo.cn
