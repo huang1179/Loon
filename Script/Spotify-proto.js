@@ -7,8 +7,9 @@
 ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js
 ===================Loon====================
 [Script]
-http-response ^https\:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://raw.githubusercontent.com/huang1179/Loon/H/Script/Spotify.js, requires-body=true, binary-body-mode=true, timeout=10, tag=spotifyProto
-http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ requires-body=true,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,tag=Spotify
+http-response ^https\:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://raw.githubusercontent.com/huang1179/Loon/H/Script/Spotify-proto.js, requires-body=true, binary-body-mode=true, timeout=10, tag=spotify
+
+
 [Mitm]
 hostname =spclient.wg.spotify.com
 */
