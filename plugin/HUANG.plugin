@@ -521,6 +521,9 @@ uuu.glass = server:https://a.passcloud.xyz/dns-query
 ^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/general\/search\/single\/ https://aweme.snssdk.com/aweme/v1/general/search/single/ header
 ^https?:\/\/.+?\.amemv\.com\/aweme\/v\d\/hot/search\/video\/list\/ https://aweme.snssdk.com/aweme/v1/hot/search/video/list/ header
 
+#知乎去开屏
+^https?:\/\/api\.zhihu\.com\/commercial_api\/launch_v2\? url reject-dict
+
 # 云闪付 去广告
 ^https:\/\/wallet\.95516\.com\/s\/wl\/icon\/long url reject
 # 交管12123 去广告
