@@ -498,6 +498,20 @@ uuu.glass = server:https://a.passcloud.xyz/dns-query
 # Hurricane Electric
 *.he.net = server:https://ordns.he.net/dns-query
 
+[Rule]
+# 知乎去广告
+DOMAIN,118.89.204.198,REJECT
+IP-CIDR,118.89.204.198/32,REJECT,no-resolve
+IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,REJECT-DROP,no-resolve
+DOMAIN,appcloud2.in.zhihu.com,REJECT
+DOMAIN,mqtt.zhihu.com,REJECT
+DOMAIN,sugar.zhihu.com,REJECT
+USER-AGENT,AVOS*,REJECT
+# 拦截知乎回答下的广告
+URL-REGEX,^https?:\/\/www\.zhihu\.com\/api\/v4\/answers\/\d+\/recommendations,REJECT
+# 拦截知乎品牌提问广告
+URL-REGEX,^https?:\/\/api\.zhihu\.com\/brand\/question\/\d+/card\?,REJECT
+URL-REGEX,^https?:\/\/www\.zhihu\.com\/api\/v\d+\/brand\/question/\d+/card\?,REJECT
 
 
 [Rewrite]
@@ -753,10 +767,18 @@ http-response ^https://new.vip.weibo.cn/littleskin/preview requires-body=1,scrip
 http-response ^https:\/\/app\.bilibili\.com\/x\/(v2\/(splash\/(list|show)|feed\/index\?)|resource\/show\/tab\/v2) script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-json.js, requires-body=true, timeout=10, tag=bili-json
 http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll|playurl\.v1\.PlayURL\/PlayView)$ script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js, requires-body=true, binary-body-mode=true, timeout=10, tag=bili-proto
 
+#知乎去广告
+http-response ^https?:\/\/api\.zhihu\.com\/people requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,tag=知乎_处理用户信息
+http-response ^https?:\/\/api\.zhihu\.com\/(moments|topstory)(\/|\?)?(recommend|action=|feed_type=) requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,tag=知乎_信息流去广告
+http-response ^https?:\/\/api\.zhihu\.com\/v4\/questions requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,tag=知乎_回答列表去广告
+http-response ^https?:\/\/api\.zhihu\.com\/search\/preset_words\? requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,tag=知乎_预置关键词去广告
+http-response ^https?:\/\/api\.zhihu\.com\/search\/top_search\/tabs\/hot\/items requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,tag=知乎_热搜去广告
+http-response ^https?:\/\/api\.zhihu\.com\/topstory\/hot-lists?(\?|\/) requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,tag=知乎_热榜去广告
+http-response ^https?:\/\/api\.zhihu\.com\/(comment_v5\/)?(answers|comments?|articles|pins)\/\d+\/(root_|child_)?comments? requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_plus.js,tag=知乎_评论去广告
 
 
 [Mitm]
-hostname = -redirector*.googlevideo.com,youtubei.googleapis.com,*.googlevideo.com,www.youtube.com,s.youtube.com, ap*.intsig.net, *.amemv.com,aweme.snssdk.com, *.lrts.me, mp.weixin.qq.com, trade-acs.m.taobao.com, api.m.jd.com, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn, weixin110.qq.com, app.bilibili.com, grpc.biliapi.net, abbyychina.com,aicoin.cn,alienskins.cn,anydeskchina.cn,app.biliintl.com,bartender.cc,beyondcompare.cc,bingdianhuanyuan.cn,chemdraw.com.cn,cn.ultraiso.net,codesoftchina.com,coreldrawchina.com,crossoverchina.com,ditu.google.cn,dongmansoft.com,earmasterchina.cn,easyrecoverychina.com,ediuschina.com,firefox.com.cn,flstudiochina.com,folxchina.cn,formysql.com,g.cn,google.cn,guitarpro.cc,huishenghuiying.com.cn,hypeapp.cn,hypersnap.mairuan.com,iconworkshop.cn,idmchina.net,ign.xn--fiqs8s,imazingchina.com,imindmap.cc,jd.com,jihehuaban.com.cn,kingdeecn.cn,logoshejishi.com,logoshejishi.mairuan.com,luping.net.cn,map.google.cn,mathtype.cn,mi.com,mindmanager.cc,mindmanager.cn,mindmapper.cc,mycleanmymac.com,nicelabel.cc,ntfsformac.cn,officesoftcn.com,overturechina.com,passport.biliintl.com,passwordrecovery.cn,pdfexpert.cc,photozoomchina.com,shankejingling.com,suning.com,taobao.com,vegaschina.cn,www.abbyychina.com,www.aicoin.cn,www.alienskins.cn,www.anydeskchina.cn,www.bartender.cc,www.betterzip.com,www.betterzip.net,www.betterzipcn.com,www.betterzipcn.net,www.beyondcompare.cc,www.bingdianhuanyuan.cn,www.chemdraw.com.cn,www.codesoftchina.com,www.coreldrawchina.com,www.crossoverchina.com,www.dongmansoft.com,www.earmasterchina.cn,www.easyrecoverychina.com,www.ediuschina.com,www.firefox.com.cn,www.flstudiochina.com,www.folxchina.cn,www.formysql.com,www.g.cn,www.google.cn,www.guitarpro.cc,www.huishenghuiying.com.cn,www.hypeapp.cn,www.iconworkshop.cn,www.idmchina.net,www.ign.xn--fiqs8s,www.imazingchina.com,www.imindmap.cc,www.jihehuaban.com.cn,www.kingdeecn.cn,www.logoshejishi.com,www.luping.net.cn,www.mathtype.cn,www.mindmanager.cc,www.mindmanager.cn,www.mindmapper.cc,www.mycleanmymac.com,www.nicelabel.cc,www.ntfsformac.cn,www.officesoftcn.com,www.overturechina.com,www.passwordrecovery.cn,www.pdfexpert.cc,www.photozoomchina.com,www.shankejingling.com,www.xitongqingli.com,www.xshellcn.com,www.yuanchengxiezuo.com,www.zbrushcn.com,xitongqingli.com,xshellcn.com,yhd.com,you.163.com,yuanchengxiezuo.com,zbrushcn.com
+hostname = -redirector*.googlevideo.com,youtubei.googleapis.com,*.googlevideo.com,www.youtube.com,s.youtube.com, ap*.intsig.net, *.amemv.com,aweme.snssdk.com, *.lrts.me, mp.weixin.qq.com, trade-acs.m.taobao.com, api.m.jd.com, api.weibo.cn, mapi.weibo.com, *.uve.weibo.com, new.vip.weibo.cn, weixin110.qq.com, app.bilibili.com, grpc.biliapi.net, abbyychina.com,aicoin.cn,alienskins.cn,anydeskchina.cn,app.biliintl.com,bartender.cc,beyondcompare.cc,bingdianhuanyuan.cn,chemdraw.com.cn,cn.ultraiso.net,codesoftchina.com,coreldrawchina.com,crossoverchina.com,ditu.google.cn,dongmansoft.com,earmasterchina.cn,easyrecoverychina.com,ediuschina.com,firefox.com.cn,flstudiochina.com,folxchina.cn,formysql.com,g.cn,google.cn,guitarpro.cc,huishenghuiying.com.cn,hypeapp.cn,hypersnap.mairuan.com,iconworkshop.cn,idmchina.net,ign.xn--fiqs8s,imazingchina.com,imindmap.cc,jd.com,jihehuaban.com.cn,kingdeecn.cn,logoshejishi.com,logoshejishi.mairuan.com,luping.net.cn,map.google.cn,mathtype.cn,mi.com,mindmanager.cc,mindmanager.cn,mindmapper.cc,mycleanmymac.com,nicelabel.cc,ntfsformac.cn,officesoftcn.com,overturechina.com,passport.biliintl.com,passwordrecovery.cn,pdfexpert.cc,photozoomchina.com,shankejingling.com,suning.com,taobao.com,vegaschina.cn,www.abbyychina.com,www.aicoin.cn,www.alienskins.cn,www.anydeskchina.cn,www.bartender.cc,www.betterzip.com,www.betterzip.net,www.betterzipcn.com,www.betterzipcn.net,www.beyondcompare.cc,www.bingdianhuanyuan.cn,www.chemdraw.com.cn,www.codesoftchina.com,www.coreldrawchina.com,www.crossoverchina.com,www.dongmansoft.com,www.earmasterchina.cn,www.easyrecoverychina.com,www.ediuschina.com,www.firefox.com.cn,www.flstudiochina.com,www.folxchina.cn,www.formysql.com,www.g.cn,www.google.cn,www.guitarpro.cc,www.huishenghuiying.com.cn,www.hypeapp.cn,www.iconworkshop.cn,www.idmchina.net,www.ign.xn--fiqs8s,www.imazingchina.com,www.imindmap.cc,www.jihehuaban.com.cn,www.kingdeecn.cn,www.logoshejishi.com,www.luping.net.cn,www.mathtype.cn,www.mindmanager.cc,www.mindmanager.cn,www.mindmapper.cc,www.mycleanmymac.com,www.nicelabel.cc,www.ntfsformac.cn,www.officesoftcn.com,www.overturechina.com,www.passwordrecovery.cn,www.pdfexpert.cc,www.photozoomchina.com,www.shankejingling.com,www.xitongqingli.com,www.xshellcn.com,www.yuanchengxiezuo.com,www.zbrushcn.com,xitongqingli.com,xshellcn.com,yhd.com,you.163.com,yuanchengxiezuo.com,zbrushcn.com, www.zhihu.com,api.zhihu.com,zhuanlan.zhihu.com
 
 
 
