@@ -14,6 +14,7 @@ ss.epdg.epc.mnc000.mcc454.pub.3gppnetwork.org = server:https://dns1.pccw.com/dns
 ss.epdg.epc.geo.mnc000.mcc454.pub.3gppnetwork.org = server:https://dns1.pccw.com/dns-query
 
 [Rule]
+DOMAIN, gspe1-ssl.ls.apple.com, PROXY
 DOMAIN-SUFFIX, hkcsl.com, PROXY
 DOMAIN-SUFFIX, theclub.com.hk, PROXY
 DOMAIN-SUFFIX, clubsim.com.hk, PROXY
