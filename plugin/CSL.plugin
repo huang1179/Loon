@@ -5,10 +5,10 @@
 #!icon=https://raw.githubusercontent.com/huang1179/Loon/H/plugin/HUANG.png
 
 [Host]
-*.hkcsl.com = server:dns1.pccw.com ,PROXY
-*.theclub.com.hk = server:dns1.pccw.com ,PROXY
-csl.prod.ondemandconnectivity.com = server:dns1.pccw.com ,PROXY
-hhk.prod.ondemandconnectivity.com = server:dns1.pccw.com ,PROXY
-epdg.epc.mnc000.mcc454.pub.3gppnetwork.org = server:dns1.pccw.com ,PROXY
-ss.epdg.epc.mnc000.mcc454.pub.3gppnetwork.org = server:dns1.pccw.com ,PROXY
-ss.epdg.epc.geo.mnc000.mcc454.pub.3gppnetwork.org = server:dns1.pccw.com ,PROXY
+*.hkcsl.com = server:https://dns1.pccw.com/dns-query ,PROXY
+*.theclub.com.hk = server:https://dns1.pccw.com/dns-query ,PROXY
+csl.prod.ondemandconnectivity.com = server:https://dns1.pccw.com/dns-query ,PROXY
+hhk.prod.ondemandconnectivity.com = server:https://dns1.pccw.com/dns-query ,PROXY
+epdg.epc.mnc000.mcc454.pub.3gppnetwork.org = server:https://dns1.pccw.com/dns-query ,PROXY
+ss.epdg.epc.mnc000.mcc454.pub.3gppnetwork.org = server:https://dns1.pccw.com/dns-query ,PROXY
+ss.epdg.epc.geo.mnc000.mcc454.pub.3gppnetwork.org = server:https://dns1.pccw.com/dns-query ,PROXY
