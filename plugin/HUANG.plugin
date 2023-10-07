@@ -73,7 +73,9 @@ http-response ^http[s]?:\/\/idp2api.netpock.com\/api\/user_info requires-body=1,
 # B612咔叽 hostname=user-kaji-api.b612kaji.com
 http-response https://user-kaji-api.b612kaji.com/v1/purchase/subscription/subscriber/status requires-body=1,script-path=https://github.com/deezertidal/private/raw/master/js-backup/Crack/612.js, tag=B612咔叽
 
+# 石墨文档 hostname=shimo.im
+http-response ^https:\//shimo.im\/lizard-api\/users\/me requires-body=1,script-path=https://raw.githubusercontent.com/litieyin/AD_VIP/main/Script/shimo.js, tag=石墨文档
 
 
 [Mitm]
-hostname = -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com,*.kuwo.cn, *.lrts.me,appwk.baidu.com,aiqicha.baidu.com,api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com,ap*.intsig.net,idp2api.netpock.com,user-kaji-api.b612kaji.com
+hostname = -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com,*.kuwo.cn, *.lrts.me,appwk.baidu.com,aiqicha.baidu.com,api.xiuxiu.meitu.com, h5.xiuxiu.meitu.com,ap*.intsig.net,idp2api.netpock.com,user-kaji-api.b612kaji.com,shimo.im
