@@ -1,4 +1,5 @@
-# CSL
+#!name=CSL Wifi Calling
+#!desc=CSL DNS 分流
 
 [Host]
 *.hkcsl.com = server:dns1.pccw.com
