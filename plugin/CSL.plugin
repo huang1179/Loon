@@ -1,0 +1,10 @@
+# CSL
+
+[Host]
+*.hkcsl.com = server:dns1.pccw.com
+*.theclub.com.hk = server:dns1.pccw.com
+csl.prod.ondemandconnectivity.com = server:dns1.pccw.com
+hhk.prod.ondemandconnectivity.com = server:dns1.pccw.com
+epdg.epc.mnc000.mcc454.pub.3gppnetwork.org = server:dns1.pccw.com
+ss.epdg.epc.mnc000.mcc454.pub.3gppnetwork.org = server:dns1.pccw.com
+ss.epdg.epc.geo.mnc000.mcc454.pub.3gppnetwork.org = server:dns1.pccw.com
