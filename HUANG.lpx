@@ -40,8 +40,6 @@ generic script-path=https://raw.githubusercontent.com/huang1179/Loon/refs/heads/
 generic script-path=https://raw.githubusercontent.com/huang1179/Loon/refs/heads/H/Script/streaming-ui-check.js, tag=节点解锁查询, img-url=arrowtriangle.right.circle
 
 
-# 节点信息查询（IP，服务商，国家，时区，经纬度，货币）
-generic script-path=https://raw.githubusercontent.com/deezertidal/private/main/ip-api.js,tag=节点信息查询,img-url= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Domestic.png,timeout=10
 
 
 
