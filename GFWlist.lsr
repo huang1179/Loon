@@ -7050,3 +7050,68 @@ DOMAIN-SUFFIX,ocnttv.com
 # VikACG
 DOMAIN-SUFFIX,vikacg.com
 DOMAIN-SUFFIX,picjs.xyz
+
+
+
+#另加
+# Zoom
+DOMAIN-SUFFIX,zoom.us
+DOMAIN-SUFFIX,zoomgov.com
+
+# OneDrive
+DOMAIN-SUFFIX,microsoftpersonalcontent.com
+
+# OpenAi
+DOMAIN-SUFFIX,challenges.cloudflare.com
+
+# Google
+DOMAIN-SUFFIX,c.gle
+
+# Docker
+DOMAIN,d1q6f0aelx0por.cloudfront.net
+DOMAIN,d2wy8f7a9ursnm.cloudfront.net
+DOMAIN,d36jcksde1wxzq.cloudfront.net
+DOMAIN-SUFFIX,compose-spec.io
+DOMAIN-SUFFIX,dockerhub.com
+
+# Top Blocked Sites
+DOMAIN-SUFFIX,a248.e.akamai.net
+DOMAIN-SUFFIX,adobedtm.com
+DOMAIN-SUFFIX,aolcdn.com
+DOMAIN-SUFFIX,app-measurement.com
+DOMAIN-SUFFIX,armorgames.com
+DOMAIN-SUFFIX,aspnetcdn.com
+DOMAIN-SUFFIX,awsstatic.com
+DOMAIN-SUFFIX,azureedge.net
+DOMAIN-SUFFIX,bkrtx.com
+DOMAIN-SUFFIX,blogcdn.com
+DOMAIN-SUFFIX,blogsmithmedia.com
+DOMAIN-SUFFIX,cdnst.net
+DOMAIN-SUFFIX,comodoca.com
+DOMAIN-SUFFIX,deskconnect.com
+DOMAIN-SUFFIX,disquscdn.com
+DOMAIN-SUFFIX,dropboxstatic.com
+DOMAIN-SUFFIX,edgekey.net
+DOMAIN-SUFFIX,fastmail.com
+DOMAIN-SUFFIX,gfx.ms
+DOMAIN-SUFFIX,id.heroku.com
+DOMAIN-SUFFIX,io.io
+DOMAIN-SUFFIX,kat.cr
+DOMAIN-SUFFIX,licdn.com
+DOMAIN-SUFFIX,live.net
+DOMAIN-SUFFIX,llnwd.net
+DOMAIN-SUFFIX,macrumors.com
+DOMAIN-SUFFIX,megaupload.com
+DOMAIN-SUFFIX,netdna-cdn.com
+DOMAIN-SUFFIX,nintendo.net
+DOMAIN-SUFFIX,nsstatic.net
+DOMAIN-SUFFIX,prfct.co
+DOMAIN-SUFFIX,sfx.ms
+DOMAIN-SUFFIX,slack-edge.com
+DOMAIN-SUFFIX,symauth.com
+DOMAIN-SUFFIX,symcb.com
+DOMAIN-SUFFIX,symcd.com
+DOMAIN-SUFFIX,trustasiassl.com
+DOMAIN-SUFFIX,tumblr.co
+DOMAIN-SUFFIX,txmblr.com
+DOMAIN-SUFFIX,vox-cdn.com
