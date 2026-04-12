@@ -1,0 +1,50 @@
+#!name=HUANG
+#!desc=HUANG的自用插件
+#!author=HUANG
+#!homepage=https://github.com/huang1179/Loon
+#!icon=https://raw.githubusercontent.com/huang1179/Loon/H/plugin/HUANG.png
+
+
+[Rule]
+
+# Youtube去广告 hostname = -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com
+URL-REGEX,^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext,REJECT-IMG
+URL-REGEX,^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking),REJECT-IMG
+URL-REGEX,^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads,REJECT-IMG
+URL-REGEX,^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/player\/ad_break,REJECT-IMG
+URL-REGEX,^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad,REJECT-IMG
+USER-AGENT,"(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+)",REJECT-IMG
+
+
+[Rewrite]
+
+# Youtube去广告
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+
+
+
+
+
+[Script]
+
+# YouTube去首页瀑布流广告/播放页推荐列表广告(非贴片广告)
+http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next)\? script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js, requires-body=true, binary-body-mode=true, timeout=10, tag=youtube-proto
+
+# Spotify部分解锁premium,音质不能设置为超高，功能: 1.去除播放广告 2.歌手/专辑列表正常展示 3.去除随机播放 hostname =spclient.wg.spotify.com
+http-request ^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, timeout=10, tag=spotifyJson
+http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body=true, binary-body-mode=true, timeout=10, tag=spotifyProto
+
+# 适用于Loon的节点检测工具，可进行IP查询、多媒体检测等
+generic script-path=https://raw.githubusercontent.com/huang1179/Loon/refs/heads/H/Script/network-info.js,tag=入口落地查询,timeout=10,img-url=globe.asia.australia
+generic script-path=https://raw.githubusercontent.com/huang1179/Loon/refs/heads/H/Script/Geo-location.js, tag=地理位置查询,timeout=10, img-url=location.circle
+generic script-path=https://raw.githubusercontent.com/huang1179/Loon/refs/heads/H/Script/streaming-ui-check.js, tag=节点解锁查询, img-url=arrowtriangle.right.circle
+
+
+# 节点信息查询（IP，服务商，国家，时区，经纬度，货币）
+generic script-path=https://raw.githubusercontent.com/deezertidal/private/main/ip-api.js,tag=节点信息查询,img-url= https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Domestic.png,timeout=10
+
+
+
+
+[Mitm]
+hostname = -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com
