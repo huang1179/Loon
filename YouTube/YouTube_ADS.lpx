@@ -3,7 +3,7 @@
 [Argument]
 blockUpload=switch, true, tag=隐藏上传按钮
 blockImmersive=switch, true, tag=隐藏选段按钮
-blockShorts=switch, true, tag=隐藏Shorts按钮
+blockShorts=switch, false, tag=隐藏Shorts按钮
 captionLang=select,"zh-Hans","zh-Hant","ja","ko","en","off", tag=字幕翻译语言
 lyricLang=select,"zh-Hans","zh-Hant","ja","ko","en","off", tag=歌词翻译语言
 
