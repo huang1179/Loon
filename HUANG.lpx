@@ -1,5 +1,5 @@
 #!name=HUANG
-#!desc=HUANG的自用插件
+#!desc=HUANG的自用
 #!author=app2smile[https://github.com/app2smile], 001ProMax[https://github.com/001ProMax], Maasea[https://github.com/Maasea/]
 #!tag=去广告
 #!homepage=https://github.com/huang1179/Loon
@@ -8,8 +8,8 @@
 
 [Argument]
 # YouTube设置
-blockUpload=switch, true, tag=YouTube隐藏上传按钮
-blockImmersive=switch, true, tag=YouTube隐藏选段按钮
+blockUpload=switch, false, tag=YouTube隐藏上传按钮
+blockImmersive=switch, false, tag=YouTube隐藏选段按钮
 blockShorts=switch, false, tag=YouTube隐藏Shorts按钮
 captionLang=select,"zh-Hans","zh-Hant","ja","ko","en","off", tag=YouTube字幕翻译语言
 lyricLang=select,"zh-Hans","zh-Hant","ja","ko","en","off", tag=YouTube歌词翻译语言
@@ -17,7 +17,7 @@ debug=switch, false, tag=YouTube开启调试模式
 
 
 # Spotify设置
-tab=switch, true, tag=Spotify移除底栏创建按钮, desc=此开关控制是否移除底栏创建按钮
+tab=switch, false, tag=Spotify移除底栏创建按钮, desc=此开关控制是否移除底栏创建按钮
 useractivity=switch, true, tag=Spotify启用Apple设备接力, desc=此开关控制是否使用Apple设备接力
 
 
