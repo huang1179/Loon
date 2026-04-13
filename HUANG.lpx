@@ -5,34 +5,56 @@
 #!icon=https://raw.githubusercontent.com/huang1179/Loon/H/plugin/HUANG.png
 
 
+[Argument]
+# YouTube设置
+blockUpload=switch, true, tag=YouTube隐藏上传按钮
+blockImmersive=switch, true, tag=YouTube隐藏选段按钮
+blockShorts=switch, false, tag=YouTube隐藏Shorts按钮
+captionLang=select,"zh-Hans","zh-Hant","ja","ko","en","off", tag=YouTube字幕翻译语言
+lyricLang=select,"zh-Hans","zh-Hant","ja","ko","en","off", tag=YouTube歌词翻译语言
+debug=switch, false, tag=YouTube开启调试模式
+
+
+# Spotify设置
+tab=switch, true, tag=Spotify移除底栏创建按钮, desc=此开关控制是否移除底栏创建按钮
+useractivity=switch, true, tag=Spotify启用Apple设备接力, desc=此开关控制是否使用Apple设备接力
+
+
 [Rule]
 
-# Youtube去广告 hostname = -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com
-URL-REGEX,^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext,REJECT-IMG
-URL-REGEX,^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking),REJECT-IMG
-URL-REGEX,^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads,REJECT-IMG
-URL-REGEX,^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/player\/ad_break,REJECT-IMG
-URL-REGEX,^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad,REJECT-IMG
-USER-AGENT,"(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+)",REJECT-IMG
+# Youtube去广告
+AND,((DOMAIN-SUFFIX, googlevideo.com), (PROTOCOL, QUIC)),REJECT
+AND,((DOMAIN-SUFFIX, youtubei.googleapis.com), (PROTOCOL, QUIC)),REJECT
+
 
 
 [Rewrite]
 
 # Youtube去广告
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad reject-200
 
+# Spotify去广告
+^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/pendragon\/ reject-dict
+^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone header https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad
 
 
 
 
 [Script]
 
-# YouTube去首页瀑布流广告/播放页推荐列表广告(非贴片广告)
-http-response ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next)\? script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/youtube.js, requires-body=true, binary-body-mode=true, timeout=10, tag=youtube-proto
+# YouTube去广告 hostname = *.googlevideo.com, youtubei.googleapis.com
+http-response ^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$ script-path=https://raw.githubusercontent.com/huang1179/Loon/refs/heads/H/YouTube/youtube.response.js, requires-body=true, binary-body-mode=true, timeout=20, argument=[{blockUpload},{blockImmersive},{blockShorts},{captionLang},{lyricLang},{debug}],tag=YouTube去广告
+
+
+# Spotify去广告 hostname= *-spclient.spotify.com, spclient.wg.spotify.com
+http-response ^https:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service) script-path=https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js, requires-body=true, binary-body-mode=true, timeout=3, argument=[{tab},{useractivity}], tag=Protobuf
+
 
 # Spotify部分解锁premium,音质不能设置为超高，功能: 1.去除播放广告 2.歌手/专辑列表正常展示 3.去除随机播放 hostname =spclient.wg.spotify.com
 http-request ^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/ script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js, timeout=10, tag=spotifyJson
 http-response ^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$ script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js, requires-body=true, binary-body-mode=true, timeout=10, tag=spotifyProto
+
+
 
 # 适用于Loon的节点检测工具，可进行IP查询、多媒体检测等
 generic script-path=https://raw.githubusercontent.com/huang1179/Loon/refs/heads/H/Script/network-info.js,tag=入口落地查询,timeout=10,img-url=globe.asia.australia
@@ -45,4 +67,4 @@ generic script-path=https://raw.githubusercontent.com/huang1179/Loon/refs/heads/
 
 
 [Mitm]
-hostname = -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com,spclient.wg.spotify.com
+hostname = *.googlevideo.com, youtubei.googleapis.com, *-spclient.spotify.com, spclient.wg.spotify.com
