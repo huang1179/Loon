@@ -1,6 +1,7 @@
 #!name=YouTube去广告
 
 [Argument]
+arguments=请求处理服务:https://stream.maasea.workers.dev
 blockUpload=switch, true, tag=隐藏上传按钮
 blockImmersive=switch, true, tag=隐藏选段按钮
 blockShorts=switch, false, tag=隐藏Shorts按钮
