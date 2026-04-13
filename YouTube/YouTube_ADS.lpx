@@ -1,12 +1,12 @@
 #!name=YouTube去广告
 
 [Argument]
-arguments=请求处理服务:https://stream.maasea.workers.dev
 blockUpload=switch, true, tag=隐藏上传按钮
 blockImmersive=switch, true, tag=隐藏选段按钮
 blockShorts=switch, false, tag=隐藏Shorts按钮
 captionLang=select,"zh-Hans","zh-Hant","ja","ko","en","off", tag=字幕翻译语言
 lyricLang=select,"zh-Hans","zh-Hant","ja","ko","en","off", tag=歌词翻译语言
+debug=switch, false, tag=开启调试模式
 
 [Rule]
 AND,((DOMAIN-SUFFIX, googlevideo.com), (PROTOCOL, QUIC)),REJECT
@@ -16,7 +16,7 @@ AND,((DOMAIN-SUFFIX, youtubei.googleapis.com), (PROTOCOL, QUIC)),REJECT
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad reject-200
 
 [Script]
-http-response ^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$ script-path=https://raw.githubusercontent.com/huang1179/Loon/refs/heads/H/YouTube/youtube.response.js, requires-body=true, binary-body-mode=true, timeout=20, tag=YouTube去广告
+http-response ^https:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$ script-path=https://raw.githubusercontent.com/huang1179/Loon/refs/heads/H/YouTube/youtube.response.js, requires-body=true, binary-body-mode=true, timeout=20, argument=[{blockUpload},{blockImmersive},{blockShorts},{captionLang},{lyricLang},{debug}],tag=YouTube去广告
 
 
 [Mitm]
